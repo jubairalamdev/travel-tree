@@ -106,39 +106,104 @@
 
 ## Phase 4: Authentication System
 
-### 4.1 Create Authentication Types
-- [ ] User credentials type
-- [ ] Auth error type
-- [ ] Login form fields type
-- [ ] Register form fields type
+### 4.1 Install Dependencies
+- [ ] Install better-auth core library
+- [ ] Install @better-auth/mongo-adapter for MongoDB integration
+- [ ] Install mongodb driver for database connections
+- [ ] No additional packages needed (password hashing is built-in)
 
-### 4.2 Create Authentication API Hooks
-- [ ] Create useLogin mutation hook
-- [ ] Create useRegister mutation hook
-- [ ] Add error handling and loading states
+### 4.2 Configure Environment Variables
+- [ ] Create .env file with BETTER_AUTH_SECRET (min 32 chars)
+- [ ] Set BETTER_AUTH_URL to http://localhost:3000
+- [ ] Configure MONGODB_URI for MongoDB Atlas connection
+- [ ] Configure optional social provider credentials (Google, GitHub)
 
-### 4.3 Create Login Page
-- [ ] Create login page layout
-- [ ] Build form with email, password fields
-- [ ] Add inline validation
-- [ ] Add demo login button
-- [ ] Add sign up link
+### 4.3 Set Up MongoDB Connection
+- [ ] Create lib/mongodb.ts for MongoDB client connection
+- [ ] Configure connection pooling and error handling
+- [ ] Export database client instance
+- [ ] Handle graceful shutdown for connection
 
-### 4.4 Create Register Page
-- [ ] Create register page layout
-- [ ] Build form with name, email, password, confirm password
-- [ ] Add inline validation
-- [ ] Add submit button with primary color
+### 4.4 Configure Better Auth Instance
+- [ ] Create lib/auth.ts with betterAuth configuration
+- [ ] Configure MongoDB adapter (mongodbAdapter)
+- [ ] Enable email/password authentication
+- [ ] Configure session management with secure cookies
+- [ ] Set base URL and secret key
+- [ ] Enable cookie caching for performance (5 min maxAge)
+- [ ] No 2FA or email verification plugins (keep it simple)
 
-### 4.5 Create Auth Context
-- [ ] Setup authentication context
-- [ ] Implement state management for user
-- [ ] Add authentication guards
+### 4.5 Create API Route Handler
+- [ ] Create app/api/auth/[...all]/route.ts file
+- [ ] Mount Better Auth handler using toNextJsHandler
+- [ ] Configure GET and POST methods
+- [ ] Handle authentication API requests
 
-### 4.6 Create Protected Route Component
-- [ ] Create wrapper component for protected routes
-- [ ] Add redirect logic for unauthenticated users
-- [ ] Implement loading state
+### 4.6 Create Client-Side Auth Client
+- [ ] Create lib/auth-client.ts with createAuthClient
+- [ ] Configure base URL for API calls
+- [ ] Export signIn, signUp, signOut hooks
+- [ ] Export useSession hook for reactive session access
+- [ ] Export getSession hook for async session retrieval
+- [ ] Export useUser hook for user data
+- [ ] Configure React client for session management
+
+### 4.7 Create Next.js Proxy for Safe Redirection
+- [ ] Create proxy.ts file at root level
+- [ ] Configure proxy to run on authentication routes (/login, /register, /tours, /tours/[id])
+- [ ] Implement permission-based redirects for logged-in users (redirect /login, /register to /tours)
+- [ ] Implement protection for private routes (redirect unauthenticated to /login)
+- [ ] Use getSession from Better Auth inside proxy for server-side session verification
+- [ ] Configure matcher for path filtering
+- [ ] Add loading state handling for redirects
+
+### 4.8 Create Login Page
+- [ ] Create src/components/auth/LoginPage.tsx
+- [ ] Build login form with email and password fields
+- [ ] Implement form validation with error handling
+- [ ] Add submit button with loading state
+- [ ] Include link to registration page
+- [ ] Add social auth button placeholder for Google (manual)
+- [ ] Use Hero UI components for styling
+- [ ] Handle redirect after successful login
+
+### 4.9 Create Register Page
+- [ ] Create src/components/auth/RegisterPage.tsx
+- [ ] Build registration form with name, email, password fields
+- [ ] Add password confirmation field
+- [ ] Implement form validation for all fields
+- [ ] Add inline validation and error display
+- [ ] Include submit button with loading state
+- [ ] Link to login page for existing users
+- [ ] Use Hero UI components for styling
+- [ ] Handle redirect after successful registration
+
+### 4.10 Create Protected Route Component
+- [ ] Create src/components/auth/ProtectedRoute.tsx
+- [ ] Implement useSession hook for reactive session checking
+- [ ] Implement redirect to /login if unauthenticated
+- [ ] Add loading state during session verification
+- [ ] Server-side session validation using getSession API
+- [ ] Client-side fallback check with useSession
+- [ ] Smooth redirect handling with proper state management
+- [ ] Handle session expiration gracefully
+
+### 4.11 Create Auth Context Provider
+- [ ] Create AuthProvider component
+- [ ] Wrap app with session provider
+- [ ] Handle session state management with useSession
+- [ ] Implement error handling for auth failures
+- [ ] Add session refresh on mount using getSession
+- [ ] Clean up subscriptions and prevent memory leaks
+- [ ] Implement session timeout detection and handling
+
+### 4.12 Create Utility Functions
+- [ ] Create auth helper utilities
+- [ ] Implement logout functionality with proper session cleanup
+- [ ] Create session validation utilities using getSession
+- [ ] Add auth error handling helpers
+- [ ] Create session timeout detection and refresh logic
+- [ ] Implement utility functions for auth state checking
 
 ## Phase 5: Main Application Layout
 
