@@ -1,6 +1,6 @@
 'use client';
 
-import { Star, Quote } from 'lucide-react';
+import { Star, Quote, User } from 'lucide-react';
 
 interface Testimonial {
   id: string;
@@ -39,30 +39,12 @@ const testimonials: Testimonial[] = [
     avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80',
     rating: 5,
     company: 'Frequent Traveler'
-  },
-  {
-    id: '4',
-    quote: 'What an incredible experience! The team at Travel Tree went above and beyond to make our family vacation perfect. Our kids still talk about the amazing places we visited.',
-    name: 'David & Michelle Thompson',
-    role: 'Family Travelers',
-    avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80',
-    rating: 5,
-    company: 'Family Adventure'
-  },
-  {
-    id: '5',
-    quote: 'Professional, reliable, and incredibly experienced. They handled everything flawlessly, allowing us to relax and fully enjoy our vacation without any stress or worries.',
-    name: 'Amanda Foster',
-    role: 'Solo Traveler',
-    avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80',
-    rating: 5,
-    company: 'Independent Traveler'
   }
 ];
 
 export default function TestimonialsSection() {
   return (
-    <section className="py-16 lg:py-24 bg-gray-50">
+    <section className="py-16 lg:py-24 bg-gray-50" id="testimonials">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
@@ -101,7 +83,9 @@ export default function TestimonialsSection() {
                   <div className="w-14 h-14 rounded-full flex items-center justify-center text-white font-bold text-lg">
                     {testimonial.name.split(' ').map((n) => n[0]).join('')}
                   </div>
-                  <div className="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-primary border-2 border-white" />
+                  <div className="absolute -top-1 -right-1 rounded-full bg-primary border-2 border-white" >
+                    <User size={30} className="text-white" />
+                  </div>
                 </div>
 
                 <div>
@@ -120,14 +104,6 @@ export default function TestimonialsSection() {
               </div>
             </div>
           ))}
-        </div>
-
-        <div className="mt-12 flex justify-center">
-          <div className="flex items-center space-x-2">
-            <div className="w-12 h-1 bg-primary rounded-full" />
-            <div className="w-8 h-1 bg-primary/50 rounded-full" />
-            <div className="w-4 h-1 bg-primary/30 rounded-full" />
-          </div>
         </div>
       </div>
     </section>

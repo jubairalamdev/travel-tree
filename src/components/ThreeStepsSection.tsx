@@ -1,5 +1,8 @@
-import {Star, StepForwardIcon } from 'lucide-react';
-import {Suitcase, Car} from '@gravity-ui/icons';
+'use client';
+
+import { motion } from 'framer-motion'; 
+import { Star, ArrowRight } from 'lucide-react';
+import { Suitcase, Car } from '@gravity-ui/icons';
 
 export default function ThreeStepsSection() {
   const steps = [
@@ -7,82 +10,127 @@ export default function ThreeStepsSection() {
       icon: Suitcase,
       title: 'Choose Your Trip',
       description: 'Explore our carefully curated tours and select the perfect adventure that matches your interests and schedule.',
-      color: 'bg-blue-100'
+      badgeColor: 'text-blue-600 bg-blue-50 border-blue-100',
+      accentGlow: 'group-hover:ring-blue-500/10'
     },
     {
       icon: Car,
       title: 'Book Your Experience',
       description: 'Secure your spot with our easy booking process. Fill out a simple form and get instant confirmation.',
-      color: 'bg-green-100'
+      badgeColor: 'text-emerald-600 bg-emerald-50 border-emerald-100',
+      accentGlow: 'group-hover:ring-emerald-500/10'
     },
     {
       icon: Star,
       title: 'Enjoy Your Journey',
       description: 'Sit back and relax while we take care of everything. We ensure you have an unforgettable experience.',
-      color: 'bg-purple-100'
+      badgeColor: 'text-amber-600 bg-amber-50 border-amber-100',
+      accentGlow: 'group-hover:ring-amber-500/10'
     }
   ];
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: { staggerChildren: 0.2 }
+    }
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 30 },
+    show: { 
+      opacity: 1, 
+      y: 0, 
+      transition: { type: 'spring', stiffness: 90, damping: 14 } 
+    }
+  };
+
   return (
-    <section className="py-16 lg:py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+    <section className="relative py-20 lg:py-28 bg-slate-50 overflow-hidden">
+      <motion.div 
+        className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12"
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, margin: "-100px" }}
+      >
+        {/* Modernized Section Header */}
+        <div className="flex flex-col items-center text-center mb-16 lg:mb-24">
+          <span className="text-xs font-bold uppercase tracking-widest text-slate-400 bg-slate-200/50 px-3 py-1 rounded-full border border-slate-200/60">
+            Workflow
+          </span>
+          <h2 className="text-4xl sm:text-5xl font-black text-primary tracking-tight mt-4 mb-4">
             How It Works
           </h2>
-          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
-            Your seamless travel experience in three simple steps
+          <p className="text-base sm:text-lg text-slate-500 max-w-xl font-medium">
+            Your seamless travel experience engineered into three simple actions.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
+        {/* Steps Grid System */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 relative">
+          
           {steps.map((step, index) => (
-            <div
+            <motion.div
               key={index}
-              className="relative group"
+              variants={cardVariants}
+              className="relative group flex flex-col h-full"
             >
-              {index !== 2 && (
-                <div className="hidden lg:block absolute top-1/2 right-0 -translate-y-1/2 w-full h-1 bg-gradient-to-l from-primary/20 to-transparent" />
+              {/* Desktop Connecting Line Indicator */}
+              {index < 2 && (
+                <div className="hidden md:block absolute top-[44px] left-[calc(50%+4rem)] w-[calc(100%-8rem)] h-[2px] bg-slate-200/70 z-0">
+                  <div className="w-full h-full bg-slate-400 origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-700 ease-out" />
+                </div>
               )}
 
-              <div className="bg-gray-50 rounded-2xl p-8 lg:p-10 hover:bg-white hover:shadow-xl hover:shadow-primary/10 transition-all duration-300 border-2 border-transparent hover:border-primary/20">
-                <div className={`w-16 h-16 ${step.color} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                  <StepForwardIcon size={32} className="text-primary" />
-                </div>
-
-                <div className="text-sm font-semibold text-primary mb-3 tracking-wider uppercase">
-                  Step 0{index + 1}
-                </div>
-
-                <h3 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-4">
-                  {step.title}
-                </h3>
-
-                <p className="text-gray-600 leading-relaxed">
-                  {step.description}
-                </p>
-
-                {index < 2 && (
-                  <div className="mt-6 flex items-center text-primary font-semibold group-hover:translate-x-2 transition-transform duration-300">
-                    <span>Next: Step {index + 2}</span>
-                    <svg
-                      className="w-5 h-5 ml-2"
-                      fill="none"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
+              {/* Dynamic Interactive Card Base */}
+              <div className="relative z-10 bg-white border border-slate-100 rounded-3xl p-8 xl:p-10 shadow-[0_12px_40px_-20px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_50px_-20px_rgba(0,0,0,0.08)] group-hover:ring-4 group-hover:border-slate-200/50 transition-all duration-300 flex flex-col justify-between flex-1">
+                
+                <div>
+                  {/* Top Header Section inside card */}
+                  <div className="flex items-center justify-between mb-8">
+                    {/* Fixed: Dynamically renders step.icon instead of duplicating StepForwardIcon */}
+                    <motion.div 
+                      whileHover={{ scale: 1.1, rotate: -5 }}
+                      className={`w-14 h-14 ${step.badgeColor} border rounded-2xl flex items-center justify-center`}
                     >
-                      <path d="M9 5l7 7-7 7" />
-                    </svg>
+                      <step.icon className="w-6 h-6 stroke-[1.8]" />
+                    </motion.div>
+
+                    <span className="text-xs font-black tracking-widest text-slate-300 uppercase select-none">
+                      // 0{index + 1}
+                    </span>
+                  </div>
+
+                  {/* Body Copy */}
+                  <h3 className="text-2xl font-extrabold text-slate-900 tracking-tight mb-3 group-hover:text-black transition-colors">
+                    {step.title}
+                  </h3>
+
+                  <p className="text-slate-500 text-sm xl:text-base leading-relaxed font-normal">
+                    {step.description}
+                  </p>
+                </div>
+
+                {/* Conditional Dynamic Link Footers */}
+                {index < 2 ? (
+                  <div className="mt-8 pt-6 border-t border-slate-50 flex items-center justify-between text-xs font-bold uppercase tracking-wider text-slate-400 group-hover:text-slate-900 transition-colors">
+                    <span>Next: Step 0{index + 2}</span>
+                    <ArrowRight size={16} className="transform group-hover:translate-x-1.5 transition-transform duration-300" />
+                  </div>
+                ) : (
+                  <div className="mt-8 pt-6 border-t border-slate-50 flex items-center justify-between text-xs font-bold uppercase tracking-wider text-slate-400">
+                    <span className="inline-flex items-center gap-1.5 text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-md border border-emerald-100"> Ready to Roll</span>
                   </div>
                 )}
+
               </div>
-            </div>
+            </motion.div>
           ))}
+
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

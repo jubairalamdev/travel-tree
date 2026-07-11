@@ -1,43 +1,35 @@
 import Link from 'next/link';
 import { Facebook, Twitter, Instagram, Linkedin, ArrowUp } from 'lucide-react';
+import Image from 'next/image';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   const footerLinks = {
-    support: [
-      { name: 'Help Center', href: '#' },
-      { name: 'Terms of Service', href: '#' },
-      { name: 'Privacy Policy', href: '#' },
-      { name: 'Contact Us', href: '#' },
+    links: [
+      { name: 'Homepage', href: '/' },
+      { name: 'Browse Tours', href: '/tours' },
+      { name: 'Add Tours', href: '/Items/Add' },
     ],
     about: [
-      { name: 'About Us', href: '#' },
-      { name: 'Our Story', href: '#' },
-      { name: 'Careers', href: '#' },
-      { name: 'Press', href: '#' },
-    ],
-    company: [
-      { name: 'Company', href: '#' },
-      { name: 'Locations', href: '#' },
-      { name: 'Blog', href: '#' },
-      { name: 'Membership', href: '#' },
-    ],
+      { name: 'About Us', href: '/about' },
+      { name: 'Contact Us', href: '/contact-us' },
+      { name: 'Reviews', href: '/#testimonials' }
+    ]
   };
 
   return (
     <footer className="bg-gray-900 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <div className="lg:col-span-1">
-            <div className="flex items-center space-x-2 mb-4">
-              <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xl">T</span>
+            <Link href="/" className="flex items-center space-x-2">
+              <Image src="/assets/logo-white.png" alt="site-logo" width={45} height={45} />
+              <div className="flex flex-col">
+                <span className="text-xl font-bold text-hover uppercase">Travel</span>
+                <span className="text-3xl font-bold text-primary uppercase -mt-2">Tree</span>
               </div>
-              <span className="text-xl font-bold">
-                TravelTree
-              </span>
-            </div>
+            </Link>
             <p className="text-gray-400 mb-4">
               Your trusted partner for unforgettable travel experiences. Discover amazing tours around the world.
             </p>
@@ -58,9 +50,9 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="text-lg font-semibold mb-4">Support</h3>
+            <h3 className="text-lg font-semibold mb-4">Links</h3>
             <ul className="space-y-3">
-              {footerLinks.support.map((link) => (
+              {footerLinks.links.map((link) => (
                 <li key={link.name}>
                   <Link
                     href={link.href}
@@ -89,21 +81,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Company</h3>
-            <ul className="space-y-3">
-              {footerLinks.company.map((link) => (
-                <li key={link.name}>
-                  <Link
-                    href={link.href}
-                    className="text-gray-400 hover:text-white transition-colors"
-                  >
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+          
         </div>
       </div>
 
@@ -113,19 +91,6 @@ export default function Footer() {
             <div className="text-gray-400 text-sm">
               © {currentYear} TravelTree. All rights reserved.
             </div>
-
-            <div className="flex items-center space-x-6">
-              <div className="flex space-x-2">
-                <div className="w-10 h-6 bg-gray-700 rounded flex items-center justify-center">
-                  <span className="text-xs text-gray-400">VISA</span>
-                </div>
-                <div className="w-10 h-6 bg-gray-700 rounded flex items-center justify-center">
-                  <span className="text-xs text-gray-400">MC</span>
-                </div>
-                <div className="w-10 h-6 bg-gray-700 rounded flex items-center justify-center">
-                  <span className="text-xs text-gray-400">AMEX</span>
-                </div>
-              </div>
 
               <Link
                 href="#"
@@ -137,7 +102,6 @@ export default function Footer() {
             </div>
           </div>
         </div>
-      </div>
     </footer>
   );
 }

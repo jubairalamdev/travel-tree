@@ -24,7 +24,6 @@ export default function Home() {
         <VideoSection />
         <NewsletterSection />
       </main>
-      <TopBar />
       <Footer />
     </>
   );

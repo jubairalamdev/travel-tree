@@ -1,4 +1,7 @@
+"use client"
+
 import { Mail, MapPin, Camera, Download } from 'lucide-react';
+import { toast } from 'react-toastify';
 
 export default function NewsletterSection() {
   return (
@@ -87,21 +90,9 @@ export default function NewsletterSection() {
                 />
               </div>
 
-              <div>
-                <label htmlFor="name" className="block text-sm font-semibold text-gray-700 mb-2">
-                  Your Name
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  placeholder="John Doe"
-                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-primary transition-colors"
-                />
-              </div>
-
               <div className="pt-4">
                 <button
-                  type="submit"
+                  onClick={(e) => {e.preventDefault(); toast.success("Email Submitted Successfully!")}}
                   className="w-full px-8 py-4 bg-primary text-white font-semibold rounded-xl hover:bg-hover transition-all duration-300 flex items-center justify-center space-x-2"
                 >
                   <span>Subscribe Now</span>
