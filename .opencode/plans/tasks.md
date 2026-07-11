@@ -22,11 +22,11 @@
 ## Phase 2: Global Components
 
 ### 2.1 Create Shared UI Components
-- [ ] Button component with variants
-- [ ] Card component (consistent design across app)
-- [ ] Input component
-- [ ] Modal/Dialog component
-- [ ] Loading/Skeleton components
+- [x] Button component with variants
+- [x] Card component (consistent design across app)
+- [x] Input component
+- [x] Modal/Dialog component
+- [x] Loading/Skeleton components
 
 ### 2.2 Create Global Layout Components
 - [ ] Sticky Navbar (desktop navigation)
