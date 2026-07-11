@@ -1,12 +1,29 @@
+import Navbar from '@/components/Navbar';
+import HeroSection from '@/components/HeroSection';
+import DiscoverWeeklySection from '@/components/DiscoverWeeklySection';
+import ThreeStepsSection from '@/components/ThreeStepsSection';
+import StatisticsSection from '@/components/StatisticsSection';
+import TravelGuidelineSection from '@/components/TravelGuidelineSection';
+import TestimonialsSection from '@/components/TestimonialsSection';
+import VideoSection from '@/components/VideoSection';
+import Footer from '@/components/Footer';
+import TopBar from '@/components/TopBar';
+
 export default function Home() {
   return (
-    <main className="min-h-screen">
-      <h1 className="text-4xl font-bold text-primary">
-        Welcome to Travel Tree
-      </h1>
-      <p className="text-gray-600 mt-4">
-        Discover the most engaging places with less planning
-      </p>
-    </main>
-  )
+    <>
+      <Navbar />
+      <main className="min-h-screen">
+        <HeroSection />
+        <DiscoverWeeklySection />
+        <ThreeStepsSection />
+        <StatisticsSection />
+        <TravelGuidelineSection />
+        <TestimonialsSection />
+        <VideoSection />
+      </main>
+      <TopBar />
+      <Footer />
+    </>
+  );
 }

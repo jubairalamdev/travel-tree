@@ -66,31 +66,31 @@
 - [x] Add explore button
 
 ### 3.3 Three Steps Section
-- [ ] Create 3 step cards
-- [ ] Add suitcase, taxi, star icons
-- [ ] Add description text
+- [x] Create 3 step cards
+- [x] Add suitcase, taxi, star icons
+- [x] Add description text
 
 ### 3.4 Statistics Section
-- [ ] Create statistics cards
-- [ ] Set background color (#7fdbc9)
-- [ ] Display 4 columns with icons and text
-- [ ] Add user count, tour count, likes, ratings
+- [x] Create statistics cards
+- [x] Set background color (#7fdbc9)
+- [x] Display 4 columns with icons and text
+- [x] Add user count, tour count, likes, ratings
 
 ### 3.5 Travel Guideline Section
-- [ ] Split layout component
-- [ ] Left side: heading, subheading, checklist
-- [ ] Right side: 2 overlapping oval images
+- [x] Split layout component
+- [x] Left side: heading, subheading, checklist
+- [x] Right side: 2 overlapping oval images
 
 ### 3.6 Testimonials Section
-- [ ] Create testimonial card with quote, name, role
-- [ ] Add circular avatar background with colors
-- [ ] Implement carousel for testimonials
+- [x] Create testimonial card with quote, name, role
+- [x] Add circular avatar background with colors
+- [x] Implement carousel for testimonials
 
 ### 3.7 Video Section
-- [ ] Create full-width background section
-- [ ] Add section heading and large heading
-- [ ] Add circular play button with triangle color
-- [ ] Add embedded video placeholder
+- [x] Create full-width background section
+- [x] Add section heading and large heading
+- [x] Add circular play button with triangle color
+- [x] Add embedded video placeholder
 
 ### 3.8 Newsletter Section
 - [ ] Split layout component

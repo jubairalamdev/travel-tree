@@ -14,6 +14,11 @@
 // Landing Page Components
 // Hero Section with swiper slider
 // Discover Weekly Section with tour cards
+// Three Steps Section with icons and descriptions
+// Statistics Section with 4-column grid and statistics data
+// Travel Guideline Section with split layout and checklist
+// Testimonials Section with testimonial cards and star ratings
+// Video Section with play button and video placeholders
 
 export { default as Button } from './Button'
 export { default as Card } from './Card'
@@ -28,3 +33,8 @@ export { default as TopBar } from './TopBar'
 
 export { default as HeroSection } from './HeroSection'
 export { default as DiscoverWeeklySection } from './DiscoverWeeklySection'
+export { default as ThreeStepsSection } from './ThreeStepsSection'
+export { default as StatisticsSection } from './StatisticsSection'
+export { default as TravelGuidelineSection } from './TravelGuidelineSection'
+export { default as TestimonialsSection } from './TestimonialsSection'
+export { default as VideoSection } from './VideoSection'
