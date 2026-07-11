@@ -13,6 +13,7 @@
 
 // Landing Page Components
 // Hero Section with swiper slider
+// Discover Weekly Section with tour cards
 
 export { default as Button } from './Button'
 export { default as Card } from './Card'
@@ -26,3 +27,4 @@ export { default as Footer } from './Footer'
 export { default as TopBar } from './TopBar'
 
 export { default as HeroSection } from './HeroSection'
+export { default as DiscoverWeeklySection } from './DiscoverWeeklySection'

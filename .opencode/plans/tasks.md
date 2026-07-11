@@ -59,11 +59,11 @@
 - [x] Mobile responsive slider, hide shapes on mobile
 
 ### 3.2 Discover Weekly Section
-- [ ] Create card component for weekly tours
-- [ ] Display 3 cards per row
-- [ ] Add featured image, badge, tour title
-- [ ] Show location, rating, price
-- [ ] Add explore button
+- [x] Create card component for weekly tours
+- [x] Display 3 cards per row
+- [x] Add featured image, badge, tour title
+- [x] Show location, rating, price
+- [x] Add explore button
 
 ### 3.3 Three Steps Section
 - [ ] Create 3 step cards
