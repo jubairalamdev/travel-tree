@@ -10,9 +10,9 @@
 - [x] Install core dependencies (Hero Ui Latest, v3 version)
 
 ### 1.2 Configure Project Structure
-- [ ] Create folder structure: src/app, src/components, src/lib, src/types, src/assets
-- [ ] Set up global CSS with custom theme colors
-- [ ] Configure tailwind.config.ts with custom colors
+- [x] Create folder structure: src/app, src/components, src/lib, src/types, src/assets
+- [x] Set up global CSS with custom theme colors
+- [x] Configure tailwind.config.ts with custom colors
 
 ### 1.3 Create Global Layout & Head Components
 - [ ] Set up root layout with metadata

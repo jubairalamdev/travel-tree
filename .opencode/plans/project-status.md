@@ -105,15 +105,18 @@ src/
 - [x] Set up Tailwind CSS with custom color palette
 - [x] Install core dependencies (Recharts, TanStack Query, Lucide React, Motion.dev, Swiper)
 - [x] Install Hero UI (v3 latest version)
+- [x] Phase 1.2: Configure Project Structure
 - [x] Create folder structure (src/app, src/components, src/lib, src/types, src/assets)
 - [x] Set up global CSS with custom theme colors
 - [x] Configure tailwind.config.ts with custom colors
+- [x] Create shared UI components (Button, Card, Input, Modal, Skeleton)
+- [x] Create utility functions (formatPrice, ratingToStars, validateImageUrl, formatDate)
+- [x] Define TypeScript type definitions (Tour, User, Navigation, Stats, Testimonial, Event)
 - [x] Set up root layout with metadata
 - [x] Configure global CSS imports
 - [x] Verify project build works
 
 ### 🔄 IN PROGRESS
-- [ ] Phase 1.2: Configure Project Structure (partially done)
 - [ ] Phase 1.3: Create Global Layout & Head Components
 
 ### ❌ NOT STARTED
