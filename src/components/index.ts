@@ -11,6 +11,9 @@
 // Footer component
 // Top bar (copyright, payment icons, back-to-top button)
 
+// Landing Page Components
+// Hero Section with swiper slider
+
 export { default as Button } from './Button'
 export { default as Card } from './Card'
 export { default as Input } from './Input'
@@ -21,3 +24,5 @@ export { default as Navbar } from './Navbar'
 export { default as MobileMenu } from './MobileMenu'
 export { default as Footer } from './Footer'
 export { default as TopBar } from './TopBar'
+
+export { default as HeroSection } from './HeroSection'

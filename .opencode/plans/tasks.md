@@ -52,10 +52,11 @@
 ## Phase 3: Landing Page (9 Sections)
 
 ### 3.1 Hero Section
-- [ ] Create hero section component (60-70vh)
-- [ ] Set background image with overlay
-- [ ] Display heading, subheading, subtitle
-- [ ] Add subtitle text
+- [x] Create hero section component (60-70vh)
+- [x] Set background with swiper slider with 3 sliders
+- [x] Display heading, subheading, subtitle on each sliders
+- [x] Add some shapes automatically floating with Motion.dev
+- [x] Mobile responsive slider, hide shapes on mobile
 
 ### 3.2 Discover Weekly Section
 - [ ] Create card component for weekly tours
