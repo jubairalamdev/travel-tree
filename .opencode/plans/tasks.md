@@ -15,9 +15,9 @@
 - [x] Configure tailwind.config.ts with custom colors
 
 ### 1.3 Create Global Layout & Head Components
-- [ ] Set up root layout with metadata
-- [ ] Configure global CSS imports
-- [ ] Setup Google Fonts (likely a modern sans-serif)
+- [x] Set up root layout with metadata
+- [x] Configure global CSS imports
+- [x] Setup Google Fonts (likely a modern sans-serif)
 
 ## Phase 2: Global Components
 
