@@ -1,5 +1,10 @@
 # Travel Tree - Design System Reference
 
+## UI COMPONENT LIBRARY
+- **Hero UI** (v3 latest) - Pre-built component library for consistent UI
+- Pre-configured with custom colors from the design system
+- Components: Buttons, Inputs, Cards, Modals, etc.
+
 ## COLOR PALETTE (Strictly Enforced)
 
 ### Primary Colors

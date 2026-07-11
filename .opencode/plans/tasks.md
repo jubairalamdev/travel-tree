@@ -7,6 +7,7 @@
 - [x] Configure strict TypeScript settings
 - [x] Set up Tailwind CSS with custom color palette
 - [x] Install core dependencies (Recharts, TanStack Query, Lucide React, Motion.dev, Swiper)
+- [x] Install core dependencies (Hero Ui Latest, v3 version)
 
 ### 1.2 Configure Project Structure
 - [ ] Create folder structure: src/app, src/components, src/lib, src/types, src/assets

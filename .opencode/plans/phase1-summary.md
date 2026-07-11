@@ -7,6 +7,7 @@
 - [x] Configure strict TypeScript settings
 - [x] Set up Tailwind CSS with custom color palette
 - [x] Install core dependencies (Recharts, TanStack Query, Lucide React, Motion.dev, Swiper)
+- [x] Install Hero UI (v3 latest version)
 
 ### Additional Setup
 - [x] Create folder structure (src/app, src/components, src/lib, src/types, src/assets)
@@ -53,6 +54,7 @@
 - `next@^15.0.0` - Next.js framework
 - `react@^19.0.0` - React library
 - `react-dom@^19.0.0` - React DOM
+- `hero-ui@^6.0.1` - UI component library
 - `recharts@^2.10.0` - Chart library
 - `@tanstack/react-query@^5.0.0` - React Query for data fetching
 - `lucide-react@^0.460.0` - Icon library

@@ -37,6 +37,17 @@ travel-tree/
 - **Accent:** #ffc83d
 - **Hover:** #0d6efd
 
+## 📦 Core Dependencies
+
+- `next@^15.0.0` - Next.js framework
+- `react@^19.0.0` - React library
+- `hero-ui@^6.0.1` - UI component library
+- `recharts@^2.10.0` - Chart library
+- `@tanstack/react-query@^5.0.0` - React Query
+- `lucide-react@^0.460.0` - Icon library
+- `framer-motion@^11.0.0` - Animation library
+- `swiper@^11.1.0` - Carousel library
+
 ## 📋 Current Status
 
 - ✅ Phase 1.1: Initialize Next.js Project (Complete)
