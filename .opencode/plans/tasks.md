@@ -113,10 +113,10 @@
 - [x] No additional packages needed (password hashing is built-in)
 
 ### 4.2 Configure Environment Variables
-- [ ] Create .env file with BETTER_AUTH_SECRET (min 32 chars)
-- [ ] Set BETTER_AUTH_URL to http://localhost:3000
-- [ ] Configure MONGODB_URI for MongoDB Atlas connection
-- [ ] Configure optional social provider credentials (Google, GitHub)
+- [x] Create .env file with BETTER_AUTH_SECRET (min 32 chars)
+- [x] Set BETTER_AUTH_URL to http://localhost:3000
+- [x] Configure MONGODB_URI for MongoDB Atlas connection
+- [x] Configure optional social provider credentials (Google Only)
 
 ### 4.3 Set Up MongoDB Connection
 - [ ] Create lib/mongodb.ts for MongoDB client connection
