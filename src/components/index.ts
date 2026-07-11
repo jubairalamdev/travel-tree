@@ -19,6 +19,7 @@
 // Travel Guideline Section with split layout and checklist
 // Testimonials Section with testimonial cards and star ratings
 // Video Section with play button and video placeholders
+// Newsletter Section with email subscription form
 
 export { default as Button } from './Button'
 export { default as Card } from './Card'
@@ -38,3 +39,4 @@ export { default as StatisticsSection } from './StatisticsSection'
 export { default as TravelGuidelineSection } from './TravelGuidelineSection'
 export { default as TestimonialsSection } from './TestimonialsSection'
 export { default as VideoSection } from './VideoSection'
+export { default as NewsletterSection } from './NewsletterSection'

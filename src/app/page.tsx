@@ -6,6 +6,7 @@ import StatisticsSection from '@/components/StatisticsSection';
 import TravelGuidelineSection from '@/components/TravelGuidelineSection';
 import TestimonialsSection from '@/components/TestimonialsSection';
 import VideoSection from '@/components/VideoSection';
+import NewsletterSection from '@/components/NewsletterSection';
 import Footer from '@/components/Footer';
 import TopBar from '@/components/TopBar';
 
@@ -21,6 +22,7 @@ export default function Home() {
         <TravelGuidelineSection />
         <TestimonialsSection />
         <VideoSection />
+        <NewsletterSection />
       </main>
       <TopBar />
       <Footer />

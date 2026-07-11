@@ -93,7 +93,7 @@ export default function TestimonialsSection() {
               <Quote className="text-primary/30 mb-4" size={32} />
 
               <p className="text-gray-700 mb-6 leading-relaxed">
-                "{testimonial.quote}"
+                &ldquo;{testimonial.quote}&rdquo;
               </p>
 
               <div className="flex items-center space-x-4">

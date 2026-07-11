@@ -93,16 +93,16 @@
 - [x] Add embedded video placeholder
 
 ### 3.8 Newsletter Section
-- [ ] Split layout component
-- [ ] Left side: illustration (yellow hat, purple shirt, map)
-- [ ] Right side: background, heading, email input, subscribe button
+- [x] Split layout component
+- [x] Left side: illustration (yellow hat, purple shirt, map)
+- [x] Right side: background, heading, email input, subscribe button
 
 ### 3.9 Footer Component
-- [ ] Create 4-column footer layout
-- [ ] Left: logo, description, social icons
-- [ ] Middle: support links, about links
-- [ ] Right: contact information
-- [ ] Bottom bar: copyright, payment icons, back-to-top button
+- [x] Create 4-column footer layout
+- [x] Left: logo, description, social icons
+- [x] Middle: support links, about links
+- [x] Right: contact information
+- [x] Bottom bar: copyright, payment icons, back-to-top button
 
 ## Phase 4: Authentication System
 
