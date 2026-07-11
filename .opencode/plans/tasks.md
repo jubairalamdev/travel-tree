@@ -36,10 +36,10 @@
 - [x] Top bar (copyright, payment icons, back-to-top button)
 
 ### 2.3 Create Utility Functions
-- [ ] Format price function
-- [ ] Rating to star display function
-- [ ] Image URL validation helper
-- [ ] Date formatter
+- [x] Format price function
+- [x] Rating to star display function
+- [x] Image URL validation helper
+- [x] Date formatter
 
 ### 2.4 Define Type Definitions
 - [ ] Tour type interface
