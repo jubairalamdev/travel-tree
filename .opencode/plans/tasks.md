@@ -42,12 +42,12 @@
 - [x] Date formatter
 
 ### 2.4 Define Type Definitions
-- [ ] Tour type interface
-- [ ] User type interface
-- [ ] Navigation link types
-- [ ] Stats type
-- [ ] Testimonial type
-- [ ] Event type
+- [x] Tour type interface
+- [x] User type interface
+- [x] Navigation link types
+- [x] Stats type
+- [x] Testimonial type
+- [x] Event type
 
 ## Phase 3: Landing Page (9 Sections)
 
