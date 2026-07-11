@@ -149,13 +149,13 @@
 - [x] Configure React client for session management
 
 ### 4.7 Create Next.js Proxy for Safe Redirection
-- [ ] Create proxy.ts file at root level
-- [ ] Configure proxy to run on authentication routes (/login, /register, /tours, /tours/[id])
-- [ ] Implement permission-based redirects for logged-in users (redirect /login, /register to /tours)
-- [ ] Implement protection for private routes (redirect unauthenticated to /login)
-- [ ] Use getSession from Better Auth inside proxy for server-side session verification
-- [ ] Configure matcher for path filtering
-- [ ] Add loading state handling for redirects
+- [x] Create proxy.ts file at root level
+- [x] Configure proxy to run on authentication routes (/login, /register, /tours, /tours/[id])
+- [x] Implement permission-based redirects for logged-in users (redirect /login, /register to /tours)
+- [x] Implement protection for private routes (redirect unauthenticated to /login)
+- [x] Use getSession from Better Auth inside proxy for server-side session verification
+- [x] Configure matcher for path filtering
+- [x] Add loading state handling for redirects
 
 ### 4.8 Create Login Page
 - [ ] Create src/components/auth/LoginPage.tsx
