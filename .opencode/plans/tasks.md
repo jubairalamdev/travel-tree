@@ -29,11 +29,11 @@
 - [x] Loading/Skeleton components
 
 ### 2.2 Create Global Layout Components
-- [ ] Sticky Navbar (desktop navigation)
-- [ ] Mobile Hamburger Menu
-- [ ] Mobile Navigation Drawer
-- [ ] Footer component
-- [ ] Top bar (copyright, payment icons, back-to-top button)
+- [x] Sticky Navbar (desktop navigation)
+- [x] Mobile Hamburger Menu
+- [x] Mobile Navigation Drawer
+- [x] Footer component
+- [x] Top bar (copyright, payment icons, back-to-top button)
 
 ### 2.3 Create Utility Functions
 - [ ] Format price function
