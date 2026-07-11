@@ -125,13 +125,13 @@
 - [x] Handle graceful shutdown for connection
 
 ### 4.4 Configure Better Auth Instance
-- [ ] Create lib/auth.ts with betterAuth configuration
-- [ ] Configure MongoDB adapter (mongodbAdapter)
-- [ ] Enable email/password authentication
-- [ ] Configure session management with secure cookies
-- [ ] Set base URL and secret key
-- [ ] Enable cookie caching for performance (5 min maxAge)
-- [ ] No 2FA or email verification plugins (keep it simple)
+- [x] Create lib/auth.ts with betterAuth configuration
+- [x] Configure MongoDB adapter (mongodbAdapter)
+- [x] Enable email/password authentication
+- [x] Configure session management with secure cookies
+- [x] Set base URL and secret key
+- [x] Enable cookie caching for performance (5 min maxAge)
+- [x] No 2FA or email verification plugins (keep it simple)
 
 ### 4.5 Create API Route Handler
 - [ ] Create app/api/auth/[...all]/route.ts file
