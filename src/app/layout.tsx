@@ -3,6 +3,7 @@ import { Inter, Poppins } from "next/font/google"
 import "./globals.css"
 import { ToastContainer } from "react-toastify"
 import { Footer, Navbar } from "@/components"
+import Providers from "@/components/Providers"
 
 const inter = Inter({
   subsets: ["latin"],
@@ -91,8 +92,10 @@ export default function RootLayout({
       </head>
       <body className={`${inter.variable} ${poppins.variable} antialiased flex flex-col min-h-screen`}>
         <Navbar />
-        <main className="flex-1 pt-12 md:pt-16">
-          {children}
+        <main className="flex-1">
+          <Providers>
+            {children}
+          </Providers>
         </main>
         <Footer />
       <ToastContainer 

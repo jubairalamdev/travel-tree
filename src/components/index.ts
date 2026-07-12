@@ -40,3 +40,8 @@ export { default as TravelGuidelineSection } from './TravelGuidelineSection'
 export { default as TestimonialsSection } from './TestimonialsSection'
 export { default as VideoSection } from './VideoSection'
 export { default as NewsletterSection } from './NewsletterSection'
+
+export { default as FilterSidebar } from './FilterSidebar'
+export { default as SortDropdown } from './SortDropdown'
+export { default as ToursGrid } from './ToursGrid'
+export { default as Pagination } from './Pagination'

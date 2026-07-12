@@ -211,14 +211,14 @@
 ## Phase 7: Tours Listing Page
 
 ### 7.1 Create Filter Sidebar Component
-- [ ] Create category filter dropdown (extract unique categories from data)
-- [ ] Create price range filter (min/max inputs)
-- [ ] Create rating filter (stars or dropdown)
-- [ ] Add reset filters button
+- [x] Create category filter dropdown (extract unique categories from data)
+- [x] Create price range filter (min/max inputs)
+- [x] Create rating filter (stars or dropdown)
+- [x] Add reset filters button
 
 ### 7.2 Create Sort Dropdown Component
-- [ ] Create sort options (price low/high, rating high/low)
-- [ ] Add sort change handler
+- [x] Create sort options (price low/high, rating high/low)
+- [x] Add sort change handler
 
 ### 7.3 Create Tours Grid Component
 - [ ] Create responsive grid (4 columns on desktop)
