@@ -321,16 +321,16 @@
 ## Phase 10: Additional Pages
 
 ### 10.1 Create About Page
-- [ ] Create about page layout
-- [ ] Add company story section
-- [ ] Add mission section
-- [ ] Add team section with member cards
+- [x] Create about page layout
+- [x] Add company story section
+- [x] Add mission section
+- [x] Add team section with member cards
 
 ### 10.2 Create Contact Page
-- [ ] Create contact page layout
-- [ ] Build contact form with fields
-- [ ] Add embedded map placeholder
-- [ ] Add contact information section
+- [x] Create contact page layout
+- [x] Build contact form with fields
+- [x] Add embedded map placeholder
+- [x] Add contact information section
 
 ## Phase 11: Images & Assets
 
