@@ -137,11 +137,16 @@ All sections created as separate components and assembled on `src/app/page.tsx`:
 7. **LoginPage** redirects to `/` on success (not `/tours`)
 
 ### ❌ NOT STARTED
-- Phase 6: Tours Listing Page — needs backend or mock data
-- Phase 7: Tour Details Page — needs backend or mock data
-- Phase 8: Add Item Page — needs backend or mock data
-- Phase 9: Manage Items Page — needs backend or mock data + Recharts
+- Phase 6: API Utility Functions — serverFetch and serverMutation (simplified data layer)
+- Phase 7: Tours Listing Page — uses serverFetch + client-side filter/sort/paginate
+- Phase 8: Tour Details Page — single image, uses serverFetch
+- Phase 9: Add Item Page — uses serverMutation for create
+- Phase 10: Manage Items Page — uses serverFetch + serverMutation + Recharts
 - Phase 11: Images & Assets — placeholder images, visa/mastercard icons
+- Phase 12: Performance & Optimization
+- Phase 13: Testing & Documentation
+- Phase 14: Final Polish
+- Phase 15: Deployment
 - Phase 12: Performance & Optimization — code splitting, lazy loading, image optimization
 - Phase 13: Testing & Documentation — mock data, responsive testing, README
 - Phase 14: Final Polish — color review, spacing, interactions

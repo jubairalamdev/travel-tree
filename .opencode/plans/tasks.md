@@ -199,124 +199,95 @@
 - [x] Add mobile menu toggle
 - [x] Implement route change logic
 
-## Phase 6: Tours Listing Page
+## Phase 6: API Utility Functions
 
-### 6.1 Create Tour API Hook
-- [ ] Create useTours query hook
-- [ ] Add search parameter support
-- [ ] Add filters support
+### 6.1 Create API Utility Functions
+- [x] Create src/lib/serverFetch.ts for GET requests
+- [x] Create src/lib/serverMutation.ts for POST/PUT/DELETE requests
+- [x] Configure NEXT_PUBLIC_API_URL env var pointing to backend
+- [x] Add error handling (check response.success, throw on failure)
+- [x] Export both functions for use across all data-fetching pages
 
-### 6.2 Create Filter Sidebar Component
-- [ ] Create category filter dropdown
-- [ ] Create price range slider
-- [ ] Create rating filter
+## Phase 7: Tours Listing Page
+
+### 7.1 Create Filter Sidebar Component
+- [ ] Create category filter dropdown (extract unique categories from data)
+- [ ] Create price range filter (min/max inputs)
+- [ ] Create rating filter (stars or dropdown)
 - [ ] Add reset filters button
 
-### 6.3 Create Sort Dropdown Component
-- [ ] Create sort options (price low/high, newest)
+### 7.2 Create Sort Dropdown Component
+- [ ] Create sort options (price low/high, rating high/low)
 - [ ] Add sort change handler
 
-### 6.4 Create Tours Grid Component
+### 7.3 Create Tours Grid Component
 - [ ] Create responsive grid (4 columns on desktop)
 - [ ] Use card component from Phase 2
-- [ ] Add pagination
+- [ ] Add client-side pagination
 
-### 6.5 Create Pagination Component
+### 7.4 Create Pagination Component
 - [ ] Create numbered pagination UI
 - [ ] Add page change handler
 - [ ] Add active state styling
 
-### 6.6 Create Tour Listing Page
+### 7.5 Create Tour Listing Page
 - [ ] Setup page layout with search bar
-- [ ] Integrate filter sidebar
-- [ ] Integrate sort dropdown
+- [ ] Fetch tours via useQuery + serverFetch('/tours')
+- [ ] Integrate filter sidebar (client-side filtering)
+- [ ] Integrate sort dropdown (client-side sorting)
 - [ ] Integrate tours grid
 - [ ] Add skeleton loading states
+- [ ] Add search bar with debounce (client-side search)
 
-### 6.7 Add Search Bar Component
-- [ ] Create search input field
-- [ ] Add search button
-- [ ] Add search debounce logic
+## Phase 8: Tour Details Page
 
-## Phase 7: Tour Details Page
-
-### 7.1 Create Tour Details API Hook
-- [ ] Create useTourDetails query hook
-- [ ] Add tour ID parameter
-- [ ] Add error handling
-
-### 7.2 Create Gallery Component
-- [ ] Create image gallery with thumbnails
-- [ ] Add lightbox/modal for full view
-- [ ] Use oval/rounded styling
-
-### 7.3 Create Tour Information Sections
-- [ ] Create title, location, price, rating section
+### 8.1 Create Tour Details Sections
+- [ ] Create hero section with single large image (imageUrl)
+- [ ] Create title, location, price, rating display
 - [ ] Create description section
-- [ ] Create overview section
-- [ ] Create key information card (duration, group size, difficulty, date)
-- [ ] Create reviews section
-- [ ] Create related tours section
+- [ ] Create key information card (duration, category)
+- [ ] Create related tours section (fetch all, pick random 3-4)
 
-### 7.4 Create Book/Book Now Button
-- [ ] Add booking button with primary color
-- [ ] Add loading state
-- [ ] Add error handling
-
-### 7.5 Create Tour Details Page
-- [ ] Set up page layout
+### 8.2 Create Tour Details Page
+- [ ] Set up dynamic route page at app/tours/[id]/page.tsx
+- [ ] Fetch tour via useQuery + serverFetch('/tours/${id}')
 - [ ] Integrate all tour sections
 - [ ] Add breadcrumbs
-- [ ] Add related tours
+- [ ] Add loading/error states
 
-## Phase 8: Add Item Page
+## Phase 9: Add Item Page
 
-### 8.1 Create Add Item Types
-- [ ] Create addItem fields type
-- [ ] Create item data type
-
-### 8.2 Create Add Item API Hook
-- [ ] Create useAddItem mutation hook
-- [ ] Add form validation
-- [ ] Add loading states
-
-### 8.3 Create Add Item Form Component
-- [ ] Create form fields: title, short description, full description, price, date, image URL
-- [ ] Add form validation
-- [ ] Add submit button with hover color
-- [ ] Add loading state
+### 9.1 Create Add Item Form Component
+- [ ] Create form fields: title, short description, full description, price, originalPrice, location, category, duration, image URL
+- [ ] Add form validation (required fields, price > 0)
+- [ ] Add submit button with loading state
 - [ ] Add error display
 
-### 8.4 Create Add Item Page
-- [ ] Set up protected route
-- [ ] Integrate form
-- [ ] Add form validation
-- [ ] Add success/error handling
+### 9.2 Create Add Item Page
+- [ ] Set up protected route at /items/add
+- [ ] Submit via useMutation + serverMutation('/tours', formData)
+- [ ] Add success/error handling with toast
+- [ ] Redirect to /tours on success
 
-## Phase 9: Manage Items Page
+## Phase 10: Manage Items Page
 
-### 9.1 Create Manage Items API Hook
-- [ ] Create useItems query hook
-- [ ] Create useDeleteItem mutation hook
-- [ ] Add loading states
-
-### 9.2 Create Manage Items Table/Grid
+### 10.1 Create Manage Items Table/Grid
 - [ ] Create responsive layout (table on desktop, grid on mobile)
-- [ ] Add item data display
-- [ ] Add view action button
-- [ ] Add delete action button
+- [ ] Display tour data (title, price, location, rating)
+- [ ] Add view action button (links to /tours/[id])
+- [ ] Add delete action button with confirmation dialog
 
-### 9.3 Create Chart Component
+### 10.2 Create Chart Component
 - [ ] Create Recharts component
-- [ ] Add price distribution chart
-- [ ] Add views over time chart
-- [ ] Add booking analytics chart
+- [ ] Add price distribution chart (bar chart of tours by price range)
 
-### 9.4 Create Manage Items Page
-- [ ] Set up protected route
-- [ ] Integrate items data
+### 10.3 Create Manage Items Page
+- [ ] Set up protected route at /items/manage
+- [ ] Fetch tours via useQuery + serverFetch('/tours')
+- [ ] Delete tour via useMutation + serverMutation('/tours/${id}', {}, 'DELETE')
 - [ ] Add delete confirmation dialog
 - [ ] Add chart section
+- [ ] Handle loading/error states
 
 ## Phase 10: Additional Pages
 
