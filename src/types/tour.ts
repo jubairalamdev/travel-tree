@@ -1,19 +1,15 @@
 export interface Tour {
-  id: string
+  _id: string
   title: string
   shortDescription: string
   fullDescription: string
   price: number
-  image: string
+  originalPrice?: number
   location: string
-  rating: number
-  reviews: number
+  category: string
   duration: string
-  groupSize: number
-  difficulty: 'Easy' | 'Moderate' | 'Hard'
-  departureDate: string
-  featured: boolean
-  tags: string[]
+  rating: number
+  imageUrl: string
 }
 
 export interface TourFilters {

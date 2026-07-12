@@ -3,19 +3,17 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { Star, MapPin, ArrowRight, CalendarDays } from 'lucide-react';
+import { Star, MapPin, ArrowRight } from 'lucide-react';
 import { formatPrice } from '@/lib/formatPrice';
 
 interface WeeklyTour {
   id: string;
   title: string;
   shortDescription: string;
-  image: string;
+  imageUrl: string;
   location: string;
   rating: number;
-  reviews: number;
   price: number;
-  departureDate: string;
 }
 
 interface DiscoverWeeklySectionProps {
@@ -28,68 +26,56 @@ const weeklyTours: WeeklyTour[] = [
     id: '1',
     title: 'Bali Paradise Adventure',
     shortDescription: 'Experience the beauty of Bali with guided tours and authentic experiences',
-    image: 'https://images.unsplash.com/photo-1537996194471-e657df975ab4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    imageUrl: 'https://images.unsplash.com/photo-1537996194471-e657df975ab4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
     location: 'Bali, Indonesia',
     rating: 4.8,
-    reviews: 124,
     price: 1299,
-    departureDate: 'Mar 15, 2026'
   },
   {
     id: '2',
     title: 'Santorini Sunset Tour',
     shortDescription: 'Watch the famous Santorini sunset with luxury accommodation and fine dining',
-    image: 'https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    imageUrl: 'https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
     location: 'Santorini, Greece',
     rating: 4.9,
-    reviews: 89,
     price: 1599,
-    departureDate: 'Mar 22, 2026'
   },
   {
     id: '3',
     title: 'Tokyo Neon Lights',
     shortDescription: 'Explore Tokyo\'s vibrant culture, ancient temples, and modern cityscape',
-    image: 'https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    imageUrl: 'https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
     location: 'Tokyo, Japan',
     rating: 4.7,
-    reviews: 156,
     price: 1899,
-    departureDate: 'Apr 01, 2026'
   },
   {
     id: '4',
     title: 'Swiss Alps Adventure',
     shortDescription: 'Experience the majestic Swiss Alps with hiking, skiing, and mountain scenery',
-    image: 'https://images.unsplash.com/photo-1531366936337-7c912a4589a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    imageUrl: 'https://images.unsplash.com/photo-1531366936337-7c912a4589a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
     location: 'Swiss Alps, Switzerland',
     rating: 4.9,
-    reviews: 203,
     price: 2199,
-    departureDate: 'Apr 08, 2026'
   },
   {
     id: '5',
     title: 'Egyptian Pyramid Tour',
     shortDescription: 'Discover ancient Egypt\'s mysteries with visits to pyramids and temples',
-    image: 'https://images.unsplash.com/photo-1503177119275-0aa32b3a9368?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    imageUrl: 'https://images.unsplash.com/photo-1503177119275-0aa32b3a9368?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
     location: 'Cairo, Egypt',
     rating: 4.6,
-    reviews: 178,
     price: 999,
-    departureDate: 'Apr 15, 2026'
   },
   {
     id: '6',
     title: 'Maldives Beach Escape',
     shortDescription: 'Relax on pristine beaches and swim in crystal clear turquoise waters',
-    image: 'https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    imageUrl: 'https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
     location: 'Maldives',
     rating: 4.8,
-    reviews: 92,
     price: 2499,
-    departureDate: 'Apr 20, 2026'
-  }
+  },
 ];
 
 export default function DiscoverWeeklySection({
@@ -155,7 +141,7 @@ export default function DiscoverWeeklySection({
               {/* Media Container */}
               <div className="relative overflow-hidden aspect-[4/3] w-full bg-slate-100">
                 <Image
-                  src={tour.image}
+                  src={tour.imageUrl}
                   alt={tour.title}
                   fill
                   sizes="(max-w-7xl) 33vw, 50vw"
@@ -183,11 +169,6 @@ export default function DiscoverWeeklySection({
                     <div className="flex items-center gap-1 text-slate-500">
                       <MapPin size={14} className="text-slate-400" />
                       <span>{tour.location}</span>
-                    </div>
-                    <span className="w-1 h-1 bg-slate-300 rounded-full" />
-                    <div className="flex items-center gap-1">
-                      <CalendarDays size={14} className="text-slate-400" />
-                      <span>{tour.departureDate}</span>
                     </div>
                   </div>
 
