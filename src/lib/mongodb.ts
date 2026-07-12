@@ -18,7 +18,7 @@ const options = {
 const client = new MongoClient(MONGODB_URI, options);
 
 // Get database reference
-const db = client.db();
+const db = client.db("travel_tree");
 
 // Export MongoDB client and database
 export const mongodb = {

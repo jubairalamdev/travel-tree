@@ -2,6 +2,8 @@
 
 import { useState } from 'react';
 import { authClient } from '@/lib/auth-client';
+import { toast } from 'react-toastify';
+import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import Button from '@/components/Button';
 import Input from '@/components/Input';
@@ -9,6 +11,7 @@ import Input from '@/components/Input';
 type FormEvent = React.FormEvent;
 
 export default function LoginPage() {
+  const router = useRouter();
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
@@ -26,8 +29,11 @@ export default function LoginPage() {
         email: formData.email,
         password: formData.password
       });
+      toast.success('Welcome back!');
+      router.push('/');
     } catch (err: any) {
       setError(err.message || 'Login failed');
+      toast.error(err.message || 'Login failed');
     } finally {
       setLoading(false);
     }
@@ -115,7 +121,7 @@ export default function LoginPage() {
 
         <p className="text-center mt-8 text-sm text-gray-600">
           Don't have an account?{' '}
-          <Link href="/register" onClick={(e: FormEvent) => { e.preventDefault(); }} className="text-primary hover:underline font-medium">
+          <Link href="/register" className="text-primary hover:underline font-medium">
             Sign up for free
           </Link>
         </p>

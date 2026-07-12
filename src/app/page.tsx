@@ -12,8 +12,6 @@ import TopBar from '@/components/TopBar';
 
 export default function Home() {
   return (
-    <>
-      <Navbar />
       <main className="min-h-screen">
         <HeroSection />
         <DiscoverWeeklySection />
@@ -24,7 +22,5 @@ export default function Home() {
         <VideoSection />
         <NewsletterSection />
       </main>
-      <Footer />
-    </>
   );
 }
