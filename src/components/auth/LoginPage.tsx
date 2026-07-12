@@ -19,6 +19,22 @@ export default function LoginPage() {
     password: ''
   });
 
+  const demoEmail = process.env.NEXT_PUBLIC_DEMO_EMAIL;
+  const demoPassword = process.env.NEXT_PUBLIC_DEMO_PASSWORD;
+  const hasDemoCredentials = !!(demoEmail && demoPassword);
+
+  const handleDemoLogin = async () => {
+    if (!demoEmail || !demoPassword) {
+      setError('Demo credentials not configured');
+      return;
+    }
+    setFormData({ email: demoEmail, password: demoPassword });
+    setError('');
+
+    const syntheticEvent = { preventDefault: () => {} } as FormEvent;
+    await handleSubmit(syntheticEvent);
+  };
+
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setError('');
@@ -92,6 +108,17 @@ export default function LoginPage() {
           >
             {loading ? 'Signing in...' : 'Sign In'}
           </Button>
+
+          {hasDemoCredentials && (
+            <Button
+              type="button"
+              disabled={loading}
+              onClick={(e: FormEvent) => { e.preventDefault(); handleDemoLogin(); }}
+              className="w-full bg-secondary text-zinc-800 py-2.5 rounded-lg hover:bg-secondary/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              {loading ? 'Signing in...' : 'Demo Login'}
+            </Button>
+          )}
         </form>
 
         <div className="mt-6">
