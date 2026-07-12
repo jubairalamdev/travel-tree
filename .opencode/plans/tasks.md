@@ -194,10 +194,10 @@
 - [x] Setup metadata
 
 ### 5.2 Update Navbar for Auth States
-- [ ] Add login/signup buttons for logged out state
-- [ ] Add user dropdown for logged in state
-- [ ] Add mobile menu toggle
-- [ ] Implement route change logic
+- [x] Add login/signup buttons for logged out state
+- [x] Add user dropdown for logged in state
+- [x] Add mobile menu toggle
+- [x] Implement route change logic
 
 ## Phase 6: Tours Listing Page
 

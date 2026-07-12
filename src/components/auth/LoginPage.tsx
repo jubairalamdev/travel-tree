@@ -23,16 +23,13 @@ export default function LoginPage() {
   const demoPassword = process.env.NEXT_PUBLIC_DEMO_PASSWORD;
   const hasDemoCredentials = !!(demoEmail && demoPassword);
 
-  const handleDemoLogin = async () => {
+  const handleDemoCredentials = () => {
     if (!demoEmail || !demoPassword) {
       setError('Demo credentials not configured');
       return;
     }
     setFormData({ email: demoEmail, password: demoPassword });
     setError('');
-
-    const syntheticEvent = { preventDefault: () => {} } as FormEvent;
-    await handleSubmit(syntheticEvent);
   };
 
   const handleSubmit = async (e: FormEvent) => {
@@ -112,11 +109,10 @@ export default function LoginPage() {
           {hasDemoCredentials && (
             <Button
               type="button"
-              disabled={loading}
-              onClick={(e: FormEvent) => { e.preventDefault(); handleDemoLogin(); }}
-              className="w-full bg-secondary text-zinc-800 py-2.5 rounded-lg hover:bg-secondary/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              onClick={handleDemoCredentials}
+              className="w-full bg-secondary text-zinc-800 py-2.5 rounded-lg hover:bg-secondary/90 transition-colors"
             >
-              {loading ? 'Signing in...' : 'Demo Login'}
+              Demo Credentials
             </Button>
           )}
         </form>
