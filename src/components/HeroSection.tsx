@@ -64,7 +64,7 @@ export default function HeroSection() {
         navigation={true}
         onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
         modules={[Autoplay, Pagination, Navigation]}
-        className="w-full h-[70vh] lg:h-[85vh] hero-swiper-custom"
+        className="w-full h-[70vh] lg:h-[700px] hero-swiper-custom"
       >
         {BANNER_DATA.map((slide, index) => (
           <SwiperSlide key={slide.id}>
