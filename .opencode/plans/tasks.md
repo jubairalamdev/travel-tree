@@ -221,39 +221,39 @@
 - [x] Add sort change handler
 
 ### 7.3 Create Tours Grid Component
-- [ ] Create responsive grid (4 columns on desktop)
-- [ ] Use card component from Phase 2
-- [ ] Add client-side pagination
+- [x] Create responsive grid (4 columns on desktop)
+- [x] Use card component from Phase 2
+- [x] Add client-side pagination
 
 ### 7.4 Create Pagination Component
-- [ ] Create numbered pagination UI
-- [ ] Add page change handler
-- [ ] Add active state styling
+- [x] Create numbered pagination UI
+- [x] Add page change handler
+- [x] Add active state styling
 
 ### 7.5 Create Tour Listing Page
-- [ ] Setup page layout with search bar
-- [ ] Fetch tours via useQuery + serverFetch('/tours')
-- [ ] Integrate filter sidebar (client-side filtering)
-- [ ] Integrate sort dropdown (client-side sorting)
-- [ ] Integrate tours grid
-- [ ] Add skeleton loading states
-- [ ] Add search bar with debounce (client-side search)
+- [x] Setup page layout with search bar
+- [x] Fetch tours via useQuery + serverFetch('/tours')
+- [x] Integrate filter sidebar (client-side filtering)
+- [x] Integrate sort dropdown (client-side sorting)
+- [x] Integrate tours grid
+- [x] Add skeleton loading states
+- [x] Add search bar with debounce (client-side search)
 
 ## Phase 8: Tour Details Page
 
 ### 8.1 Create Tour Details Sections
-- [ ] Create hero section with single large image (imageUrl)
-- [ ] Create title, location, price, rating display
-- [ ] Create description section
-- [ ] Create key information card (duration, category)
-- [ ] Create related tours section (fetch all, pick random 3-4)
+- [x] Create hero section with single large image (imageUrl)
+- [x] Create title, location, price, rating display
+- [x] Create description section
+- [x] Create key information card (duration, category)
+- [x] Create related tours section (fetch all, pick random 3-4)
 
 ### 8.2 Create Tour Details Page
-- [ ] Set up dynamic route page at app/tours/[id]/page.tsx
-- [ ] Fetch tour via useQuery + serverFetch('/tours/${id}')
-- [ ] Integrate all tour sections
-- [ ] Add breadcrumbs
-- [ ] Add loading/error states
+- [x] Set up dynamic route page at app/tours/[id]/page.tsx
+- [x] Fetch tour via useQuery + serverFetch('/tours/${id}')
+- [x] Integrate all tour sections
+- [x] Add breadcrumbs
+- [x] Add loading/error states
 
 ## Phase 9: Add Item Page
 
