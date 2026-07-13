@@ -2,23 +2,33 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import { useRouter } from 'next/navigation'
-import { Eye, Trash2, ExternalLink } from 'lucide-react'
+import { Eye, Trash2, ExternalLink, Pencil } from 'lucide-react'
 import { Tour } from '@/types/tour'
 import { serverMutation } from '@/lib/serverMutation'
 import { toast } from 'react-toastify'
 import Modal from './Modal'
 import Button from './Button'
 
+const CATEGORIES = [
+  'Adventure', 'Beach', 'Cultural', 'Hiking', 'Wildlife',
+  'City Tours', 'Food & Dining', 'Luxury',
+]
+
 interface ManageItemsTableProps {
   tours: Tour[]
   onDelete: (id: string) => void
+  onUpdate: (tour: Tour) => void
 }
 
-export default function ManageItemsTable({ tours, onDelete }: ManageItemsTableProps) {
-  const router = useRouter()
+export default function ManageItemsTable({ tours, onDelete, onUpdate }: ManageItemsTableProps) {
   const [deleteId, setDeleteId] = useState<string | null>(null)
   const [deleting, setDeleting] = useState(false)
+  const [editTour, setEditTour] = useState<Tour | null>(null)
+  const [editForm, setEditForm] = useState({
+    title: '', shortDescription: '', fullDescription: '', price: '',
+    originalPrice: '', location: '', category: '', duration: '', imageUrl: '',
+  })
+  const [updating, setUpdating] = useState(false)
 
   const handleDelete = async () => {
     if (!deleteId) return
@@ -32,6 +42,49 @@ export default function ManageItemsTable({ tours, onDelete }: ManageItemsTablePr
       toast.error(err?.message || 'Failed to delete tour')
     } finally {
       setDeleting(false)
+    }
+  }
+
+  const openEdit = (tour: Tour) => {
+    setEditTour(tour)
+    setEditForm({
+      title: tour.title,
+      shortDescription: tour.shortDescription,
+      fullDescription: tour.fullDescription,
+      price: String(tour.price),
+      originalPrice: tour.originalPrice ? String(tour.originalPrice) : '',
+      location: tour.location,
+      category: tour.category,
+      duration: tour.duration,
+      imageUrl: tour.imageUrl,
+    })
+  }
+
+  const handleUpdate = async () => {
+    if (!editTour) return
+    setUpdating(true)
+    try {
+      const payload: Record<string, any> = {
+        title: editForm.title.trim(),
+        shortDescription: editForm.shortDescription.trim(),
+        fullDescription: editForm.fullDescription.trim(),
+        price: Number(editForm.price),
+        location: editForm.location.trim(),
+        category: editForm.category,
+        duration: editForm.duration.trim(),
+        imageUrl: editForm.imageUrl.trim(),
+      }
+      if (editForm.originalPrice) {
+        payload.originalPrice = Number(editForm.originalPrice)
+      }
+      const updated = await serverMutation<Tour>(`/tours/${editTour._id}`, payload, 'PATCH')
+      toast.success('Tour updated successfully')
+      onUpdate(updated)
+      setEditTour(null)
+    } catch (err: any) {
+      toast.error(err?.message || 'Failed to update tour')
+    } finally {
+      setUpdating(false)
     }
   }
 
@@ -68,6 +121,13 @@ export default function ManageItemsTable({ tours, onDelete }: ManageItemsTablePr
                       View
                     </Link>
                     <button
+                      onClick={() => openEdit(tour)}
+                      className="inline-flex items-center gap-1.5 text-sm text-blue-500 hover:text-blue-700 font-medium"
+                    >
+                      <Pencil size={15} />
+                      Edit
+                    </button>
+                    <button
                       onClick={() => setDeleteId(tour._id)}
                       className="inline-flex items-center gap-1.5 text-sm text-red-500 hover:text-red-700 font-medium"
                     >
@@ -101,6 +161,13 @@ export default function ManageItemsTable({ tours, onDelete }: ManageItemsTablePr
                 View
               </Link>
               <button
+                onClick={() => openEdit(tour)}
+                className="inline-flex items-center gap-1 text-sm text-blue-500 hover:text-blue-700 font-medium"
+              >
+                <Pencil size={15} />
+                Edit
+              </button>
+              <button
                 onClick={() => setDeleteId(tour._id)}
                 className="inline-flex items-center gap-1 text-sm text-red-500 hover:text-red-700 ml-auto"
               >
@@ -132,6 +199,109 @@ export default function ManageItemsTable({ tours, onDelete }: ManageItemsTablePr
           >
             {deleting ? 'Deleting...' : 'Delete'}
           </button>
+        </div>
+      </Modal>
+
+      {/* Edit tour modal */}
+      <Modal
+        isOpen={!!editTour}
+        onClose={() => !updating && setEditTour(null)}
+        title="Edit Tour"
+      >
+        <div className="space-y-4 max-h-[60vh] overflow-y-auto pr-1">
+          <div>
+            <label className="block text-sm font-semibold text-textdark mb-1">Title <span className="text-primary">*</span></label>
+            <input
+              value={editForm.title}
+              onChange={(e) => setEditForm((p) => ({ ...p, title: e.target.value }))}
+              className="w-full px-3 py-2 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-primary text-sm"
+            />
+          </div>
+          <div className="grid grid-cols-2 gap-4">
+            <div>
+              <label className="block text-sm font-semibold text-textdark mb-1">Price <span className="text-primary">*</span></label>
+              <input
+                type="number"
+                value={editForm.price}
+                onChange={(e) => setEditForm((p) => ({ ...p, price: e.target.value }))}
+                className="w-full px-3 py-2 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-primary text-sm"
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-semibold text-textdark mb-1">Original Price</label>
+              <input
+                type="number"
+                value={editForm.originalPrice}
+                onChange={(e) => setEditForm((p) => ({ ...p, originalPrice: e.target.value }))}
+                className="w-full px-3 py-2 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-primary text-sm"
+              />
+            </div>
+          </div>
+          <div className="grid grid-cols-2 gap-4">
+            <div>
+              <label className="block text-sm font-semibold text-textdark mb-1">Location <span className="text-primary">*</span></label>
+              <input
+                value={editForm.location}
+                onChange={(e) => setEditForm((p) => ({ ...p, location: e.target.value }))}
+                className="w-full px-3 py-2 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-primary text-sm"
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-semibold text-textdark mb-1">Category <span className="text-primary">*</span></label>
+              <select
+                value={editForm.category}
+                onChange={(e) => setEditForm((p) => ({ ...p, category: e.target.value }))}
+                className="w-full px-3 py-2 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-primary text-sm bg-white"
+              >
+                <option value="">Select</option>
+                {CATEGORIES.map((c) => <option key={c} value={c}>{c}</option>)}
+              </select>
+            </div>
+          </div>
+          <div className="grid grid-cols-2 gap-4">
+            <div>
+              <label className="block text-sm font-semibold text-textdark mb-1">Duration <span className="text-primary">*</span></label>
+              <input
+                value={editForm.duration}
+                onChange={(e) => setEditForm((p) => ({ ...p, duration: e.target.value }))}
+                className="w-full px-3 py-2 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-primary text-sm"
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-semibold text-textdark mb-1">Image URL <span className="text-primary">*</span></label>
+              <input
+                value={editForm.imageUrl}
+                onChange={(e) => setEditForm((p) => ({ ...p, imageUrl: e.target.value }))}
+                className="w-full px-3 py-2 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-primary text-sm"
+              />
+            </div>
+          </div>
+          <div>
+            <label className="block text-sm font-semibold text-textdark mb-1">Short Description <span className="text-primary">*</span></label>
+            <textarea
+              rows={2}
+              value={editForm.shortDescription}
+              onChange={(e) => setEditForm((p) => ({ ...p, shortDescription: e.target.value }))}
+              className="w-full px-3 py-2 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-primary text-sm resize-none"
+            />
+          </div>
+          <div>
+            <label className="block text-sm font-semibold text-textdark mb-1">Full Description <span className="text-primary">*</span></label>
+            <textarea
+              rows={3}
+              value={editForm.fullDescription}
+              onChange={(e) => setEditForm((p) => ({ ...p, fullDescription: e.target.value }))}
+              className="w-full px-3 py-2 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-primary text-sm resize-none"
+            />
+          </div>
+        </div>
+        <div className="flex gap-3 justify-end mt-6 pt-4 border-t border-gray-100">
+          <Button variant="outline" onClick={() => setEditTour(null)} disabled={updating}>
+            Cancel
+          </Button>
+          <Button onClick={handleUpdate} disabled={updating}>
+            {updating ? 'Saving...' : 'Save Changes'}
+          </Button>
         </div>
       </Modal>
     </>

@@ -22,6 +22,10 @@ export default function ManageItemsPage() {
     setTours((prev) => prev.filter((t) => t._id !== id))
   }, [])
 
+  const handleUpdate = useCallback((updated: Tour) => {
+    setTours((prev) => prev.map((t) => (t._id === updated._id ? updated : t)))
+  }, [])
+
   if (isLoading) {
     return (
       <section className="max-w-6xl mx-auto px-4 py-16">
@@ -47,7 +51,7 @@ export default function ManageItemsPage() {
 
       <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
         <h2 className="text-lg font-semibold text-textdark mb-4">All Tours</h2>
-        <ManageItemsTable tours={tours} onDelete={handleDelete} />
+        <ManageItemsTable tours={tours} onDelete={handleDelete} onUpdate={handleUpdate} />
       </div>
     </section>
   )
