@@ -275,19 +275,21 @@
 - [x] Create responsive layout (table on desktop, grid on mobile)
 - [x] Display tour data (title, price, location, rating)
 - [x] Add view action button (links to /tours/[id])
+- [x] Add edit action button with pre-filled modal form
 - [x] Add delete action button with confirmation dialog
 
 ### 10.2 Create Chart Component
-- [ ] Create Recharts component
-- [ ] Add price distribution chart (bar chart of tours by price range)
+- [x] Create DailyCreationChart (Recharts AreaChart) with theme colors
+- [x] Fetch daily creation stats from GET /api/tours/stats/daily-creation?userId=...
+- [x] Display 7-day tour creation trend with filled area
 
 ### 10.3 Create Manage Items Page
-- [ ] Set up protected route at /items/manage
-- [ ] Fetch tours via useQuery + serverFetch('/tours')
-- [ ] Delete tour via useMutation + serverMutation('/tours/${id}', {}, 'DELETE')
-- [ ] Add delete confirmation dialog
-- [ ] Add chart section
-- [ ] Handle loading/error states
+- [x] Set up protected route at /items/manage
+- [x] Fetch tours via useQuery + serverFetch('/tours')
+- [x] Delete tour via useMutation + serverMutation('/tours/${id}', {}, 'DELETE')
+- [x] Add delete confirmation dialog
+- [x] Add chart section
+- [x] Handle loading/error states
 
 ## Phase 10: Additional Pages
 
