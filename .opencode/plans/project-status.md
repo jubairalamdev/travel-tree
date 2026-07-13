@@ -5,7 +5,7 @@
 **Project Name:** Travel Tree Frontend  
 **Type:** Production-ready travel agency web application  
 **Framework:** Next.js (App Router) + TypeScript + Tailwind CSS  
-**Current Status:** Phases 1-8 complete, Phase 10 (About/Contact) complete. Phases 9, 11-15 remain.
+**Current Status:** Phases 1-9 complete, Phase 10 (About/Contact) complete. Phases 11-15 remain.
 
 ## PROJECT LOCATION
 ```
@@ -44,7 +44,7 @@
 | `/contact` | Contact page | Done |
 | `/tours` | Tours listing with search, filters, sort, pagination | Done |
 | `/tours/[id]` | Tour details (hero, info, description, related) | Done |
-| `/items/add` | Add item (protected) | Not started |
+| `/items/add` | Add item (protected) | Done |
 | `/items/manage` | Manage items (protected) | Not started |
 
 ## COMPLETED WORK SUMMARY
@@ -89,10 +89,12 @@
 - `TravelGuidelineSection.tsx` — 3 TS errors (framer-motion ViewportOptions `delay`), cosmetic only
 
 ## NEXT SESSION — WHERE TO START
-**Next phase:** Phase 9 — Add Item Page
-1. `src/components/AddItemForm.tsx` — form with fields: title, shortDescription, fullDescription, price, originalPrice, location, category, duration, imageUrl
-2. `src/app/items/add/page.tsx` — protected route, `useMutation` + `serverMutation('/tours', formData)`, toast on success, redirect to `/tours`
-3. Add route matcher for `/items/add` in `src/middleware.ts`
+**Next phase:** Phase 10 — Manage Items Page
+1. `src/components/ManageItemsTable.tsx` — responsive table/grid with tour data, view/delete actions
+2. `src/components/PriceChart.tsx` — Recharts bar chart for price distribution
+3. `src/app/items/manage/page.tsx` — protected route, fetch + delete tours, chart section
+4. Add `/items/manage` to middleware matcher
+5. All remaining Phases: 11 (Assets), 12 (Performance), 13 (Testing), 14 (Polish), 15 (Deploy)
 
 ## HOW TO START DEV SERVER
 ```bash

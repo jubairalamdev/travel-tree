@@ -258,16 +258,16 @@
 ## Phase 9: Add Item Page
 
 ### 9.1 Create Add Item Form Component
-- [ ] Create form fields: title, short description, full description, price, originalPrice, location, category, duration, image URL
-- [ ] Add form validation (required fields, price > 0)
-- [ ] Add submit button with loading state
-- [ ] Add error display
+- [x] Create form fields: title, short description, full description, price, originalPrice, location, category, duration, image URL
+- [x] Add form validation (required fields, price > 0)
+- [x] Add submit button with loading state
+- [x] Add error display
 
 ### 9.2 Create Add Item Page
-- [ ] Set up protected route at /items/add
-- [ ] Submit via useMutation + serverMutation('/tours', formData)
-- [ ] Add success/error handling with toast
-- [ ] Redirect to /tours on success
+- [x] Set up protected route at /items/add
+- [x] Submit via useMutation + serverMutation('/tours', formData)
+- [x] Add success/error handling with toast
+- [x] Redirect to /tours on success
 
 ## Phase 10: Manage Items Page
 
