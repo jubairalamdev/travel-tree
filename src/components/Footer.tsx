@@ -13,7 +13,7 @@ export default function Footer() {
     ],
     about: [
       { name: 'About Us', href: '/about' },
-      { name: 'Contact Us', href: '/contact-us' },
+      { name: 'Contact Us', href: '/contact' },
       { name: 'Reviews', href: '/#testimonials' }
     ]
   };

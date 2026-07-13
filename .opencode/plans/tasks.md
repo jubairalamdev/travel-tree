@@ -321,19 +321,18 @@
 ## Phase 12: Performance & Optimization
 
 ### 12.1 Implement Code Splitting
-- [ ] Split page components
-- [ ] Implement dynamic imports
-- [ ] Add lazy loading for heavy components
+- [x] Dynamic import HeroSection (swiper + framer-motion) in landing page
+- [x] Dynamic import VideoSection (framer-motion) in landing page
+- [x] Dynamic import DailyCreationChart (recharts) in manage page
 
 ### 12.2 Add Loading States
-- [ ] Create skeleton loaders for all data fetching
-- [ ] Add loading states for all pages
-- [ ] Add loading spinners
+- [x] Add skeleton loading state to DiscoverWeeklySection
+- [x] Loading states already exist for tours, tour details, and manage pages
 
 ### 12.3 Optimize Images
-- [ ] Implement image optimization
-- [ ] Add lazy loading
-- [ ] Add responsive images
+- [x] Add priority to Navbar logo (LCP element)
+- [x] Fix invalid sizes prop in DiscoverWeeklySection
+- [x] Images already use next/image with fill, sizes, lazy loading
 
 ## Phase 13: Testing & Documentation
 

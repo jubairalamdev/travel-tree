@@ -71,7 +71,7 @@ export default function ContactPage() {
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -155,7 +155,7 @@ export default function ContactPage() {
             className="space-y-8"
           >
             <h2 className="text-2xl font-bold text-primary">Contact Information</h2>
-            <div className="grid sm:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {contactInfo.map((item) => (
                 <div key={item.label} className="bg-white rounded-xl p-5 shadow-sm border">
                   <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center mb-3">

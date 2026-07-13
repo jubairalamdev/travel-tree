@@ -217,7 +217,7 @@ export default function ManageItemsTable({ tours, onDelete, onUpdate }: ManageIt
               className="w-full px-3 py-2 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-primary text-sm"
             />
           </div>
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-semibold text-textdark mb-1">Price <span className="text-primary">*</span></label>
               <input
@@ -237,7 +237,7 @@ export default function ManageItemsTable({ tours, onDelete, onUpdate }: ManageIt
               />
             </div>
           </div>
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-semibold text-textdark mb-1">Location <span className="text-primary">*</span></label>
               <input
@@ -258,7 +258,7 @@ export default function ManageItemsTable({ tours, onDelete, onUpdate }: ManageIt
               </select>
             </div>
           </div>
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-semibold text-textdark mb-1">Duration <span className="text-primary">*</span></label>
               <input

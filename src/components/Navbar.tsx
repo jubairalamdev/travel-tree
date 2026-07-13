@@ -82,7 +82,7 @@ export default function Navbar() {
                       <div className="w-7 h-7 bg-primary rounded-full flex items-center justify-center text-white text-xs font-bold">
                         {session.user?.name?.charAt(0)?.toUpperCase() || 'U'}
                       </div>
-                      <span className="text-sm font-medium text-gray-700 max-w-[100px] truncate">
+                      <span className="text-sm font-medium text-gray-700 max-w-[120px] md:max-w-[180px] truncate">
                         {session.user?.name || 'User'}
                       </span>
                       <ChevronDown size={16} className={`text-gray-500 transition-transform ${isDropdownOpen ? 'rotate-180' : ''}`} />
