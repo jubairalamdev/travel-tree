@@ -42,7 +42,7 @@ export default function ManageItemsPage() {
 
   return (
     <section className="max-w-6xl mx-auto px-4 py-16">
-      <h1 className="text-3xl font-bold text-textdark mb-8">Manage Tours</h1>
+      <h1 className="text-3xl font-bold text-primary mb-8 mt-20">Manage Tours</h1>
 
       <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 mb-8">
         <h2 className="text-lg font-semibold text-textdark mb-4">Tour Creation Trend (Last 7 Days)</h2>

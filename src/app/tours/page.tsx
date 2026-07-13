@@ -91,7 +91,7 @@ export default function ToursPage() {
     <div className="pt-24 pb-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">Explore Tours</h1>
+          <h1 className="text-3xl font-bold text-primary mb-2 mt-10">Explore Tours</h1>
           <p className="text-gray-600">Discover amazing destinations and plan your next adventure.</p>
         </div>
 

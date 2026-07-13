@@ -68,7 +68,7 @@ export default function AboutPage() {
           transition={{ duration: 0.6 }}
           className="text-center max-w-3xl mx-auto mb-16"
         >
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <h1 className="text-4xl md:text-5xl font-bold text-primary mb-6">
             Our Story
           </h1>
           <p className="text-lg text-gray-600 leading-relaxed">
@@ -85,7 +85,7 @@ export default function AboutPage() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="space-y-6"
           >
-            <h2 className="text-3xl font-bold text-gray-900">
+            <h2 className="text-3xl font-bold text-primary">
               From a Dream to 50,000 Trips
             </h2>
             <div className="space-y-4 text-gray-600 leading-relaxed">
@@ -111,8 +111,7 @@ export default function AboutPage() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="relative"
           >
-            <div className="aspect-[4/3] bg-gradient-to-br from-secondary/30 to-primary/10 rounded-2xl flex items-center justify-center">
-              <MapPin size={64} className="text-primary/40" />
+            <div className="aspect-[4/3] rounded-2xl" style={{ backgroundImage: "url('./assets/about-bg.jpg')", backgroundSize: 'cover', backgroundPosition: 'center' }}>
             </div>
             <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-accent/20 rounded-full blur-2xl" />
             <div className="absolute -top-4 -right-4 w-40 h-40 bg-primary/10 rounded-full blur-2xl" />
@@ -123,7 +122,7 @@ export default function AboutPage() {
       <section className="bg-secondary/10 py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
               What Drives Us
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
@@ -152,7 +151,7 @@ export default function AboutPage() {
 
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
             Meet Our Team
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto">

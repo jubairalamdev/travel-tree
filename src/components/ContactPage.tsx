@@ -64,7 +64,7 @@ export default function ContactPage() {
           transition={{ duration: 0.6 }}
           className="text-center max-w-3xl mx-auto mb-16"
         >
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Get In Touch</h1>
+          <h1 className="text-4xl md:text-5xl font-bold text-primary mb-6">Get In Touch</h1>
           <p className="text-lg text-gray-600 leading-relaxed">
             Have a question about our tours or need help planning your next adventure?
             We would love to hear from you.
@@ -77,7 +77,7 @@ export default function ContactPage() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">Send Us a Message</h2>
+            <h2 className="text-2xl font-bold text-primary mb-6">Send Us a Message</h2>
             <form onSubmit={handleSubmit} className="space-y-5" noValidate>
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">Your Name</label>
@@ -154,7 +154,7 @@ export default function ContactPage() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="space-y-8"
           >
-            <h2 className="text-2xl font-bold text-gray-900">Contact Information</h2>
+            <h2 className="text-2xl font-bold text-primary">Contact Information</h2>
             <div className="grid sm:grid-cols-2 gap-4">
               {contactInfo.map((item) => (
                 <div key={item.label} className="bg-white rounded-xl p-5 shadow-sm border">
@@ -167,11 +167,7 @@ export default function ContactPage() {
               ))}
             </div>
 
-            <div className="bg-gradient-to-br from-gray-100 to-gray-200 rounded-xl h-64 flex flex-col items-center justify-center">
-              <MapPin size={40} className="text-primary/40 mb-3" />
-              <p className="text-gray-500 font-medium">Map Integration</p>
-              <p className="text-gray-400 text-sm">Coming soon</p>
-            </div>
+            
           </motion.div>
         </div>
       </section>

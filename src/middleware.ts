@@ -13,8 +13,6 @@ export function middleware(request: NextRequest) {
 
 export const config = {
   matcher: [
-    "/tours",
-    "/tours/:path*",
     "/items/add",
     "/items/add/:path*",
     "/items/manage",
