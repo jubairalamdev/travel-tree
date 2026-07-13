@@ -4,84 +4,28 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Star, MapPin, ArrowRight } from 'lucide-react';
+import { useQuery } from '@tanstack/react-query';
+import { Tour } from '@/types/tour';
+import { serverFetch } from '@/lib/serverFetch';
 import { formatPrice } from '@/lib/formatPrice';
-
-interface WeeklyTour {
-  id: string;
-  title: string;
-  shortDescription: string;
-  imageUrl: string;
-  location: string;
-  rating: number;
-  price: number;
-}
 
 interface DiscoverWeeklySectionProps {
   title?: string;
   subtitle?: string;
 }
 
-const weeklyTours: WeeklyTour[] = [
-  {
-    id: '1',
-    title: 'Bali Paradise Adventure',
-    shortDescription: 'Experience the beauty of Bali with guided tours and authentic experiences',
-    imageUrl: 'https://images.unsplash.com/photo-1537996194471-e657df975ab4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    location: 'Bali, Indonesia',
-    rating: 4.8,
-    price: 1299,
-  },
-  {
-    id: '2',
-    title: 'Santorini Sunset Tour',
-    shortDescription: 'Watch the famous Santorini sunset with luxury accommodation and fine dining',
-    imageUrl: 'https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    location: 'Santorini, Greece',
-    rating: 4.9,
-    price: 1599,
-  },
-  {
-    id: '3',
-    title: 'Tokyo Neon Lights',
-    shortDescription: 'Explore Tokyo\'s vibrant culture, ancient temples, and modern cityscape',
-    imageUrl: 'https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    location: 'Tokyo, Japan',
-    rating: 4.7,
-    price: 1899,
-  },
-  {
-    id: '4',
-    title: 'Swiss Alps Adventure',
-    shortDescription: 'Experience the majestic Swiss Alps with hiking, skiing, and mountain scenery',
-    imageUrl: 'https://images.unsplash.com/photo-1531366936337-7c912a4589a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    location: 'Swiss Alps, Switzerland',
-    rating: 4.9,
-    price: 2199,
-  },
-  {
-    id: '5',
-    title: 'Egyptian Pyramid Tour',
-    shortDescription: 'Discover ancient Egypt\'s mysteries with visits to pyramids and temples',
-    imageUrl: 'https://images.unsplash.com/photo-1503177119275-0aa32b3a9368?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    location: 'Cairo, Egypt',
-    rating: 4.6,
-    price: 999,
-  },
-  {
-    id: '6',
-    title: 'Maldives Beach Escape',
-    shortDescription: 'Relax on pristine beaches and swim in crystal clear turquoise waters',
-    imageUrl: 'https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    location: 'Maldives',
-    rating: 4.8,
-    price: 2499,
-  },
-];
+const MAX_TOURS = 6;
 
 export default function DiscoverWeeklySection({
   title = 'Discover Weekly Tours',
   subtitle = 'Handpicked tours for this week, curated just for you'
 }: DiscoverWeeklySectionProps) {
+  const { data: tours = [] } = useQuery<Tour[]>({
+    queryKey: ['tours'],
+    queryFn: () => serverFetch<Tour[]>('/tours'),
+  });
+
+  const weeklyTours = tours.slice(0, MAX_TOURS);
   
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -133,7 +77,7 @@ export default function DiscoverWeeklySection({
         >
           {weeklyTours.map((tour) => (
             <motion.div
-              key={tour.id}
+              key={tour._id}
               variants={itemVariants}
               whileHover={{ y: -8 }}
               className="bg-white rounded-3xl border border-slate-100/80 shadow-[0_12px_35px_-20px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_50px_-20px_rgba(0,0,0,0.08)] transition-shadow duration-300 overflow-hidden flex flex-col group h-full"
@@ -191,7 +135,7 @@ export default function DiscoverWeeklySection({
                   </div>
                   
                   <Link
-                    href={`/tours/${tour.id}`}
+                    href={`/tours/${tour._id}`}
                     className="inline-flex items-center justify-center w-11 h-11 bg-primary text-white rounded-full hover:bg-hover transition-colors shadow-sm group/btn"
                   >
                     <ArrowRight size={18} className="transform group-hover/btn:translate-x-0.5 transition-transform" />
