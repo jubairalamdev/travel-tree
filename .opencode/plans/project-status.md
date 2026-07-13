@@ -5,7 +5,7 @@
 **Project Name:** Travel Tree Frontend  
 **Type:** Production-ready travel agency web application  
 **Framework:** Next.js (App Router) + TypeScript + Tailwind CSS  
-**Current Status:** Phases 1-12 complete. Remaining: Phases 13-15.
+**Current Status:** Phases 1-13 complete. Remaining: Phases 14-15.
 
 ## PROJECT LOCATION
 ```
@@ -17,7 +17,7 @@
 - **Language:** TypeScript (Strict Mode)
 - **Styling:** Tailwind CSS with custom theme
 - **UI Components:** Custom (Button, Card, Input, Modal, Skeleton)
-- **Charts:** Recharts (not yet used)
+- **Charts:** Recharts (DailyCreationChart active)
 - **Data Fetching:** TanStack React Query + `serverFetch`/`serverMutation`
 - **Icons:** Lucide React
 - **Animation:** framer-motion
@@ -67,14 +67,43 @@
 - **app/tours/[id]/page.tsx** — dynamic route, Next.js 15 async `params`, delegates to TourDetailsClient
 - "Book Now" button shows toast (`{title} has been added!`) instead of navigating
 
-### Phases 1-5
-- Full landing page (9 sections), Navbar with auth-aware states, Footer, error/404 pages
-- Better Auth with MongoDB adapter, Login/Register pages with demo credentials
-- About page, Contact page
+### Phase 9: Add Item Page
+- **AddItemForm** — form with all fields (title, descriptions, price, location, category, duration, image), validation, loading state, error display, `serverMutation('/tours')` on submit
+- **app/items/add/page.tsx** — protected route, renders AddItemForm in card layout, metadata
+- **createdBy fix** — form now sends `session.user.id` in payload; backend stores it
+- **Date format** — `createdAt`/`updatedAt` stored as ISO strings, not Date objects
 
-### Global Loading
-- `src/app/loading.tsx` — fullscreen overlay with animated hexagon spinner (`#fc4c5a`), CSS in `globals.css`
-- `src/middleware.ts` — edge-compatible (cookie check, no MongoDB import)
+### Phase 10: Manage Items Page
+- **ManageItemsTable** — desktop Tailwind table + mobile card grid, View/Edit/Delete actions
+- **Edit modal** — pre-filled form for all tour fields, calls PATCH API, updates list in-place
+- **Delete confirmation** — modal with cancel/delete, shows loading state
+- **DailyCreationChart** — Recharts AreaChart showing 7-day tour creation trend, fetches from stats API
+- **app/items/manage/page.tsx** — protected route, chart section + table section, skeleton loading
+
+### Phase 11: Images & Assets
+- Placeholder images for tours, newsletter, backgrounds, logos added
+- Visa, mastercard, social media icons added
+
+### Phase 12: Performance & Optimization
+- **Code splitting** — dynamic imports for HeroSection (swiper), DailyCreationChart (recharts), VideoSection
+- **Loading states** — skeleton loader added to DiscoverWeeklySection (6 card placeholders)
+- **Image optimization** — `priority` on Navbar logo (LCP), fixed invalid `sizes` in DiscoverWeeklySection
+
+### Phase 13: Testing & Documentation
+- **Responsive fixes** — 6 issues fixed: Newsletter overflow, modal grid cols, Navbar truncation, About/Contact grid bases, Footer broken link
+- **README.md** created with setup instructions, project structure, routes table, design system, deployment guide
+
+### Backend (travel-tree-backend)
+- PATCH /api/tours/:id — partial update with whitelisted fields
+- DELETE /api/tours/:id — delete with 404 handling
+- GET /api/tours/stats/daily-creation — aggregation pipeline returning 7-day counts per userId
+- POST /api/tours — now stores `createdBy` from request body
+- Dates stored as ISO strings
+
+### Other Changes
+- "Book Now" button on tour details redirects unauthenticated users to `/login`
+- DiscoverWeeklySection fetches from API instead of mock data
+- middleware.ts updated with `/items/add` and `/items/manage` matchers
 
 ## KEY DECISIONS
 1. No Hero UI components — custom Button/Card/Input/Modal/Skeleton
@@ -84,21 +113,35 @@
 5. LoginPage redirects to `/` (not `/tours`)
 6. `serverFetch`/`serverMutation` pattern — no per-feature hooks
 7. `formatPrice` returns whole numbers only (no `.00`)
+8. Use PATCH (not PUT) for tour updates
+9. CreatedBy field sent from frontend auth session
+10. Charts moved to AreaChart (daily creation stats) instead of bar chart (price distribution)
 
 ## PRE-EXISTING ISSUES
 - `TravelGuidelineSection.tsx` — 3 TS errors (framer-motion ViewportOptions `delay`), cosmetic only
 
 ## NEXT SESSION — WHERE TO START
-**Next phase:** Phase 13 — Testing & Documentation
-1. Create mock tour/user/statistics data
-2. Test responsive design on mobile/tablet/desktop
-3. Create/update README with setup and dev guidelines
+**Next phase:** Phase 14 — Final Polish
+1. Review all color usage across pages (ensure consistent Primary `#fc4c5a`, Secondary `#7fdbc9`, Accent `#ffc83d`)
+2. Check spacing and alignment consistency across all pages
+3. Verify content is meaningful (no placeholder/lorem ipsum text)
+4. Test all interactions: buttons, links, forms, modals, auth flows, Book Now
+5. Test on Chrome, Firefox, Safari, Edge for browser compatibility
+6. Check bundle size and loading performance
+7. Create production build and verify
+
+Once Phase 14 is complete, proceed to Phase 15 — Deployment (Vercel/Netlify).
 
 ## HOW TO START DEV SERVER
 ```bash
-npm run dev   # runs on port 3000 (or PORT=9000 npm run dev for alt port)
+# Terminal 1: Backend
+cd ../travel-tree-backend && npm run dev
+
+# Terminal 2: Frontend
+npm run dev   # runs on port 3000
 ```
 
 ## STARTUP READ ORDER
 1. `.opencode/plans/project-status.md`
 2. `.opencode/plans/tasks.md`
+3. `AGENTS.md` — workflow guidelines
