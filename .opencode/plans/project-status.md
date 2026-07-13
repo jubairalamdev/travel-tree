@@ -5,7 +5,7 @@
 **Project Name:** Travel Tree Frontend  
 **Type:** Production-ready travel agency web application  
 **Framework:** Next.js (App Router) + TypeScript + Tailwind CSS  
-**Current Status:** Phases 1-9 complete, Phase 10 (About/Contact) complete. Phases 11-15 remain.
+**Current Status:** Phases 1-9 complete, Manage Items (10.1) done, About/Contact complete. Remaining: Chart (10.2), Manage Items page (10.3), Phases 11-15.
 
 ## PROJECT LOCATION
 ```

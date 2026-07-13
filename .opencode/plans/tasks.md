@@ -272,10 +272,10 @@
 ## Phase 10: Manage Items Page
 
 ### 10.1 Create Manage Items Table/Grid
-- [ ] Create responsive layout (table on desktop, grid on mobile)
-- [ ] Display tour data (title, price, location, rating)
-- [ ] Add view action button (links to /tours/[id])
-- [ ] Add delete action button with confirmation dialog
+- [x] Create responsive layout (table on desktop, grid on mobile)
+- [x] Display tour data (title, price, location, rating)
+- [x] Add view action button (links to /tours/[id])
+- [x] Add delete action button with confirmation dialog
 
 ### 10.2 Create Chart Component
 - [ ] Create Recharts component
