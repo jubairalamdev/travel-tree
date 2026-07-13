@@ -3,7 +3,6 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
-import { Table } from '@heroui/react'
 import { Eye, Trash2, ExternalLink } from 'lucide-react'
 import { Tour } from '@/types/tour'
 import { serverMutation } from '@/lib/serverMutation'
@@ -39,46 +38,48 @@ export default function ManageItemsTable({ tours, onDelete }: ManageItemsTablePr
   return (
     <>
       {/* Desktop table */}
-      <div className="hidden md:block">
-        <Table>
-          <Table.Content aria-label="Manage tours" className="min-w-[700px]">
-            <Table.Header>
-              <Table.Column isRowHeader>Title</Table.Column>
-              <Table.Column>Price</Table.Column>
-              <Table.Column>Location</Table.Column>
-              <Table.Column>Rating</Table.Column>
-              <Table.Column>Actions</Table.Column>
-            </Table.Header>
-            <Table.Body>
-              {tours.map((tour) => (
-                <Table.Row key={tour._id}>
-                  <Table.Cell className="font-medium">{tour.title}</Table.Cell>
-                  <Table.Cell>${tour.price.toLocaleString()}</Table.Cell>
-                  <Table.Cell>{tour.location}</Table.Cell>
-                  <Table.Cell>{'★'.repeat(Math.round(tour.rating))} {tour.rating}</Table.Cell>
-                  <Table.Cell>
-                    <div className="flex items-center gap-2">
-                      <Link
-                        href={`/tours/${tour._id}`}
-                        className="inline-flex items-center gap-1 text-sm text-blue-600 hover:underline"
-                      >
-                        <Eye size={16} />
-                        View
-                      </Link>
-                      <button
-                        onClick={() => setDeleteId(tour._id)}
-                        className="inline-flex items-center gap-1 text-sm text-red-500 hover:text-red-700"
-                      >
-                        <Trash2 size={16} />
-                        Delete
-                      </button>
-                    </div>
-                  </Table.Cell>
-                </Table.Row>
-              ))}
-            </Table.Body>
-          </Table.Content>
-        </Table>
+      <div className="hidden md:block overflow-x-auto">
+        <table className="w-full text-sm">
+          <thead>
+            <tr className="border-b border-gray-200">
+              <th className="text-left py-3 px-4 font-semibold text-textdark">Title</th>
+              <th className="text-left py-3 px-4 font-semibold text-textdark">Price</th>
+              <th className="text-left py-3 px-4 font-semibold text-textdark">Location</th>
+              <th className="text-left py-3 px-4 font-semibold text-textdark">Rating</th>
+              <th className="text-left py-3 px-4 font-semibold text-textdark">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {tours.map((tour) => (
+              <tr key={tour._id} className="border-b border-gray-100 hover:bg-gray-50 transition-colors">
+                <td className="py-3 px-4 font-medium text-textdark">{tour.title}</td>
+                <td className="py-3 px-4 text-textgray">${tour.price.toLocaleString()}</td>
+                <td className="py-3 px-4 text-textgray">{tour.location}</td>
+                <td className="py-3 px-4 text-textgray">
+                  <span className="text-accent">★</span> {tour.rating}
+                </td>
+                <td className="py-3 px-4">
+                  <div className="flex items-center gap-3">
+                    <Link
+                      href={`/tours/${tour._id}`}
+                      className="inline-flex items-center gap-1.5 text-sm text-primary hover:underline font-medium"
+                    >
+                      <Eye size={15} />
+                      View
+                    </Link>
+                    <button
+                      onClick={() => setDeleteId(tour._id)}
+                      className="inline-flex items-center gap-1.5 text-sm text-red-500 hover:text-red-700 font-medium"
+                    >
+                      <Trash2 size={15} />
+                      Delete
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
 
       {/* Mobile card grid */}
