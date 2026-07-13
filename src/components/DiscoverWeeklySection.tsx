@@ -20,7 +20,7 @@ export default function DiscoverWeeklySection({
   title = 'Discover Weekly Tours',
   subtitle = 'Handpicked tours for this week, curated just for you'
 }: DiscoverWeeklySectionProps) {
-  const { data: tours = [] } = useQuery<Tour[]>({
+  const { data: tours = [], isLoading } = useQuery<Tour[]>({
     queryKey: ['tours'],
     queryFn: () => serverFetch<Tour[]>('/tours'),
   });
@@ -39,6 +39,34 @@ export default function DiscoverWeeklySection({
     hidden: { opacity: 0, y: 30 },
     show: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 100, damping: 16 } }
   };
+
+  if (isLoading) {
+    return (
+      <section className="py-20 lg:py-28 bg-slate-50/60 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+          <div className="h-5 w-28 bg-gray-200 rounded-full animate-pulse mb-3" />
+          <div className="h-10 w-72 bg-gray-200 rounded-lg animate-pulse mb-2" />
+          <div className="h-5 w-96 bg-gray-200 rounded animate-pulse mb-12" />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[1, 2, 3, 4, 5, 6].map((i) => (
+              <div key={i} className="bg-white rounded-3xl border border-slate-100/80 overflow-hidden">
+                <div className="aspect-[4/3] bg-gray-200 animate-pulse" />
+                <div className="p-6 space-y-3">
+                  <div className="h-4 w-24 bg-gray-200 rounded animate-pulse" />
+                  <div className="h-6 w-48 bg-gray-200 rounded animate-pulse" />
+                  <div className="h-4 w-full bg-gray-200 rounded animate-pulse" />
+                  <div className="h-4 w-3/4 bg-gray-200 rounded animate-pulse" />
+                  <div className="pt-5 border-t border-slate-50">
+                    <div className="h-8 w-24 bg-gray-200 rounded animate-pulse" />
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    )
+  }
 
   return (
     <section className="py-20 lg:py-28 bg-slate-50/60 overflow-hidden">
@@ -88,7 +116,7 @@ export default function DiscoverWeeklySection({
                   src={tour.imageUrl}
                   alt={tour.title}
                   fill
-                  sizes="(max-w-7xl) 33vw, 50vw"
+                  sizes="(max-width: 1024px) 50vw, 33vw"
                   className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                 />
                 

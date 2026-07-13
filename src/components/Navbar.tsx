@@ -50,7 +50,7 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
             <Link href="/" className="flex items-center space-x-2">
-              <Image src="/assets/logo-small.png" alt="site-logo" width={45} height={45} />
+              <Image src="/assets/logo-small.png" alt="site-logo" width={45} height={45} priority />
               <div className="flex flex-col">
                 <span className="text-xl font-bold text-hover uppercase">Travel</span>
                 <span className="text-3xl font-bold text-primary uppercase -mt-2">Tree</span>

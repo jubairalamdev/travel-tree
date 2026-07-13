@@ -1,10 +1,13 @@
 'use client'
 
 import { useState, useCallback } from 'react'
+import dynamic from 'next/dynamic'
 import { useQuery } from '@tanstack/react-query'
 import { Tour } from '@/types/tour'
 import { serverFetch } from '@/lib/serverFetch'
-import { ManageItemsTable, DailyCreationChart } from '@/components'
+import { ManageItemsTable } from '@/components'
+
+const DailyCreationChart = dynamic(() => import('@/components/DailyCreationChart'), { ssr: false })
 
 export default function ManageItemsPage() {
   const [tours, setTours] = useState<Tour[]>([])
