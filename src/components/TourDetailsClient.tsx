@@ -3,12 +3,14 @@
 import { useMemo, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { useQuery } from '@tanstack/react-query';
 import { Star, MapPin, Clock, Tag } from 'lucide-react';
 import { toast } from 'react-toastify';
 import { Tour } from '@/types/tour';
 import { serverFetch } from '@/lib/serverFetch';
 import { formatPrice } from '@/lib/formatPrice';
+import { useSession } from '@/lib/auth-client';
 import Card from './Card';
 import Button from './Button';
 import Skeleton from './Skeleton';
@@ -27,6 +29,8 @@ function shuffleArray<T>(arr: T[]): T[] {
 }
 
 export default function TourDetailsClient({ tourId }: TourDetailsClientProps) {
+  const router = useRouter()
+  const { data: session } = useSession()
   const { data: tour, isLoading, error } = useQuery<Tour>({
     queryKey: ['tour', tourId],
     queryFn: () => serverFetch<Tour>(`/tours/${tourId}`),
@@ -172,7 +176,13 @@ export default function TourDetailsClient({ tourId }: TourDetailsClientProps) {
               </div>
               <Button
                 className="w-full text-center mt-6"
-                onClick={() => toast.success(`${tour.title} has been added!`)}
+                onClick={() => {
+                  if (!session) {
+                    router.push('/login')
+                  } else {
+                    toast.success(`${tour.title} has been added!`)
+                  }
+                }}
               >
                 Book Now
               </Button>
