@@ -4,7 +4,7 @@ const BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api';
 
 export async function serverFetch<T = any>(endpoint: string): Promise<T> {
   const headers: Record<string, string> = {}
-  const token = await getAuthToken()
+  const token = getAuthToken()
   if (token) {
     headers['Authorization'] = `Bearer ${token}`
   }

@@ -10,7 +10,7 @@ export async function serverMutation<T = any>(
   const headers: Record<string, string> = {
     'Content-Type': 'application/json',
   }
-  const token = await getAuthToken()
+  const token = getAuthToken()
   if (token) {
     headers['Authorization'] = `Bearer ${token}`
   }
