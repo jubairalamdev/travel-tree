@@ -213,7 +213,9 @@ export default function RegisterPage() {
 
           <button
             type="button"
-            onClick={(e: FormEvent) => { e.preventDefault(); }}
+            onClick={async () => {
+              await authClient.signIn.social({ provider: "google" });
+            }}
             className="mt-4 w-full flex items-center justify-center gap-3 px-4 py-2.5 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
           >
             <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
