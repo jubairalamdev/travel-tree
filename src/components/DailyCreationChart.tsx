@@ -4,15 +4,26 @@ import { useQuery } from '@tanstack/react-query'
 import {
   ResponsiveContainer, AreaChart, CartesianGrid, XAxis, YAxis, Tooltip, Area,
 } from 'recharts'
-import { serverFetch } from '@/lib/serverFetch'
+import { useSession } from '@/lib/auth-client'
+
+const BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api';
 
 export default function PriceChart() {
+  const { data: session } = useSession()
+  const userId = session?.user?.id
+
   const { data, isLoading } = useQuery<{ date: string; count: number }[]>({
-    queryKey: ['daily-creation'],
-    queryFn: () => serverFetch(`/tours/stats/daily-creation`),
+    queryKey: ['daily-creation', userId],
+    queryFn: async () => {
+      const res = await fetch(`${BASE_URL}/tours/stats/daily-creation?userId=${userId}`)
+      const json = await res.json()
+      if (!json.success) throw new Error(json.message || 'Something went wrong')
+      return json.data
+    },
+    enabled: !!userId,
   })
 
-  if (isLoading) {
+  if (!userId || isLoading) {
     return (
       <div className="h-64 bg-gray-50 rounded-xl animate-pulse flex items-center justify-center">
         <span className="text-textgray text-sm">Loading chart...</span>
