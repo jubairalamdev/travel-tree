@@ -5,7 +5,6 @@ import { useRouter } from 'next/navigation'
 import { Button, Input } from '@/components'
 import { serverMutation } from '@/lib/serverMutation'
 import { toast } from 'react-toastify'
-import { useSession } from '@/lib/auth-client'
 
 interface FormData {
   title: string
@@ -49,7 +48,6 @@ const inputStyle = (hasError: boolean) =>
 
 export default function AddItemForm() {
   const router = useRouter()
-  const { data: session } = useSession()
   const [formData, setFormData] = useState<FormData>({
     title: '',
     shortDescription: '',
@@ -133,9 +131,6 @@ export default function AddItemForm() {
         category: formData.category,
         duration: formData.duration.trim(),
         imageUrl: formData.imageUrl.trim(),
-      }
-      if (session?.user?.id) {
-        payload.createdBy = session.user.id
       }
       await serverMutation('/tours', payload)
       toast.success('Tour added successfully!')

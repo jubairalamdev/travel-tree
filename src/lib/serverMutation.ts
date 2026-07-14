@@ -1,3 +1,5 @@
+import { getAuthToken } from './getAuthToken'
+
 const BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api';
 
 export async function serverMutation<T = any>(
@@ -5,11 +7,17 @@ export async function serverMutation<T = any>(
   data: Record<string, any>,
   method: 'POST' | 'PUT' | 'PATCH' | 'DELETE' = 'POST'
 ): Promise<T> {
+  const headers: Record<string, string> = {
+    'Content-Type': 'application/json',
+  }
+  const token = getAuthToken()
+  if (token) {
+    headers['Authorization'] = `Bearer ${token}`
+  }
+
   const res = await fetch(`${BASE_URL}${endpoint}`, {
     method,
-    headers: {
-      'Content-Type': 'application/json',
-    },
+    headers,
     body: JSON.stringify(data),
   });
 

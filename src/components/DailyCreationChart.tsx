@@ -5,19 +5,14 @@ import {
   ResponsiveContainer, AreaChart, CartesianGrid, XAxis, YAxis, Tooltip, Area,
 } from 'recharts'
 import { serverFetch } from '@/lib/serverFetch'
-import { useSession } from '@/lib/auth-client'
 
 export default function PriceChart() {
-  const { data: session } = useSession()
-  const userId = session?.user?.id
-
   const { data, isLoading } = useQuery<{ date: string; count: number }[]>({
-    queryKey: ['daily-creation', userId],
-    queryFn: () => serverFetch(`/tours/stats/daily-creation?userId=${userId}`),
-    enabled: !!userId,
+    queryKey: ['daily-creation'],
+    queryFn: () => serverFetch(`/tours/stats/daily-creation`),
   })
 
-  if (!userId || isLoading) {
+  if (isLoading) {
     return (
       <div className="h-64 bg-gray-50 rounded-xl animate-pulse flex items-center justify-center">
         <span className="text-textgray text-sm">Loading chart...</span>
