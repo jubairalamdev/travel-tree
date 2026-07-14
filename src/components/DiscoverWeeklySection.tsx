@@ -14,7 +14,7 @@ interface DiscoverWeeklySectionProps {
   subtitle?: string;
 }
 
-const MAX_TOURS = 6;
+const MAX_TOURS = 8;
 
 export default function DiscoverWeeklySection({
   title = 'Discover Weekly Tours',
@@ -47,8 +47,8 @@ export default function DiscoverWeeklySection({
           <div className="h-5 w-28 bg-gray-200 rounded-full animate-pulse mb-3" />
           <div className="h-10 w-72 bg-gray-200 rounded-lg animate-pulse mb-2" />
           <div className="h-5 w-96 bg-gray-200 rounded animate-pulse mb-12" />
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[1, 2, 3, 4, 5, 6].map((i) => (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
               <div key={i} className="bg-white rounded-3xl border border-slate-100/80 overflow-hidden">
                 <div className="aspect-[4/3] bg-gray-200 animate-pulse" />
                 <div className="p-6 space-y-3">
@@ -97,7 +97,7 @@ export default function DiscoverWeeklySection({
 
         {/* Dynamic Grid Layout */}
         <motion.div 
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
           variants={containerVariants}
           initial="hidden"
           whileInView="show"
@@ -127,7 +127,7 @@ export default function DiscoverWeeklySection({
                   </span>
                   
                   <div className="flex items-center gap-1 bg-white/95 text-slate-900 backdrop-blur-md px-2.5 py-1 rounded-full text-xs font-bold shadow-md">
-                    <Star size={13} fill="currentColor" className="text-amber-500 stroke-amber-500" />
+                    <Star size={13} fill="currentColor" className="text-accent stroke-accent" />
                     <span>{tour.rating}</span>
                   </div>
                 </div>

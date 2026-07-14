@@ -16,7 +16,7 @@ interface ToursGridProps {
 export default function ToursGrid({ tours, loading }: ToursGridProps) {
   if (loading) {
     return (
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {Array.from({ length: 8 }).map((_, i) => (
           <div key={i} className="bg-white rounded-lg shadow-md overflow-hidden">
             <Skeleton className="aspect-[4/3] w-full" />
@@ -40,7 +40,7 @@ export default function ToursGrid({ tours, loading }: ToursGridProps) {
   }
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
       {tours.map((tour) => (
         <Link key={tour._id} href={`/tours/${tour._id}`} className="group">
           <Card hover className="h-full flex flex-col">

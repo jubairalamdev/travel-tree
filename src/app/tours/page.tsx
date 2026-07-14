@@ -12,7 +12,7 @@ import type { SortOption } from '@/components/SortDropdown';
 import ToursGrid from '@/components/ToursGrid';
 import Pagination from '@/components/Pagination';
 
-const ITEMS_PER_PAGE = 6;
+const ITEMS_PER_PAGE = 8;
 
 export default function ToursPage() {
   const [search, setSearch] = useState('');

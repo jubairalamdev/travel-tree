@@ -39,7 +39,7 @@ export default function TopBar({
 
               <Link
                 href="#"
-                className="text-primary hover:text-hover font-semibold transition-colors flex items-center space-x-1"
+                className="text-primary hover:text-primary/70 font-semibold transition-colors flex items-center space-x-1"
               >
                 <ArrowUp size={18} />
                 <span>Back to Top</span>

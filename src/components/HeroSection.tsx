@@ -137,7 +137,7 @@ export default function HeroSection() {
                         >
                           <Link
                             href="/tours"
-                            className="px-7 py-3.5 text-sm font-medium text-black bg-primary hover:bg-zinc-200 transition-all rounded-full font-semibold shadow-lg hover:scale-[1.02] active:scale-[0.98]"
+                            className="px-7 py-3.5 text-sm font-medium text-black bg-primary hover:bg-hover transition-all rounded-full font-semibold shadow-lg hover:scale-[1.02] active:scale-[0.98]"
                           >
                             {slide.buttonText}
                           </Link>

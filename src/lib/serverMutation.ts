@@ -3,7 +3,7 @@ const BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api';
 export async function serverMutation<T = any>(
   endpoint: string,
   data: Record<string, any>,
-  method: 'POST' | 'PUT' | 'DELETE' = 'POST'
+  method: 'POST' | 'PUT' | 'PATCH' | 'DELETE' = 'POST'
 ): Promise<T> {
   const res = await fetch(`${BASE_URL}${endpoint}`, {
     method,

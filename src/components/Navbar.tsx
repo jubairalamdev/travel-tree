@@ -52,7 +52,7 @@ export default function Navbar() {
             <Link href="/" className="flex items-center space-x-2">
               <Image src="/assets/logo-small.png" alt="site-logo" width={45} height={45} priority />
               <div className="flex flex-col">
-                <span className="text-xl font-bold text-hover uppercase">Travel</span>
+                <span className="text-xl font-bold text-primary uppercase">Travel</span>
                 <span className="text-3xl font-bold text-primary uppercase -mt-2">Tree</span>
               </div>
             </Link>

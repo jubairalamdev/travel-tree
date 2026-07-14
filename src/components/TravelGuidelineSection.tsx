@@ -124,9 +124,9 @@ export default function TravelGuidelineSection() {
               <motion.div 
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true, delay: 0.15 }}
+                viewport={{ once: true }}
                 animate={{ y: [0, 8, 0] }}
-                transition={{ animate: { repeat: Infinity, duration: 3.5, ease: "easeInOut" } }}
+                transition={{ delay: 0.15, animate: { repeat: Infinity, duration: 3.5, ease: "easeInOut" } }}
                 className="absolute top-60 -left-4 w-36 h-36 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center shadow-xl shadow-blue-500/10 z-30 p-4 text-center text-white"
               >
                 <div>
@@ -139,9 +139,9 @@ export default function TravelGuidelineSection() {
               <motion.div 
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true, delay: 0.2 }}
+                viewport={{ once: true }}
                 animate={{ y: [0, -8, 0] }}
-                transition={{ animate: { repeat: Infinity, duration: 5, ease: "easeInOut" } }}
+                transition={{ delay: 0.2, animate: { repeat: Infinity, duration: 5, ease: "easeInOut" } }}
                 className="absolute top-16 right-0 w-36 h-36 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center shadow-xl shadow-green-500/10 z-10 p-4 text-center text-white"
               >
                 <div>
@@ -154,9 +154,9 @@ export default function TravelGuidelineSection() {
               <motion.div 
                 initial={{ opacity: 0, scale: 0.8, y: -20 }}
                 whileInView={{ opacity: 1, scale: 1, y: 0 }}
-                viewport={{ once: true, delay: 0.25 }}
+                viewport={{ once: true }}
                 animate={{ y: [0, 12, 0] }}
-                transition={{ animate: { repeat: Infinity, duration: 4.5, ease: "easeInOut" }, type: 'spring' }}
+                transition={{ delay: 0.25, animate: { repeat: Infinity, duration: 4.5, ease: "easeInOut" }, type: 'spring' }}
                 className="absolute bottom-0 right-4 w-56 h-56 bg-gradient-to-br from-orange-400 to-orange-600 rounded-full flex items-center justify-center shadow-2xl shadow-orange-500/20 z-20 p-6 text-center text-white"
               >
                 <div>

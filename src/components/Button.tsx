@@ -2,7 +2,7 @@ export default function Button({ children, className = '', variant = 'primary', 
   const baseClasses = 'px-6 py-3 rounded-lg font-semibold transition-all duration-300'
   const variants: Record<string, string> = {
     primary: 'bg-primary text-white hover:bg-hover btn-primary',
-    secondary: 'bg-secondary text-white hover:bg-blue-600 btn-primary',
+    secondary: 'bg-secondary text-white hover:bg-hover btn-primary',
     outline: 'border-2 border-primary text-primary hover:bg-primary hover:text-white'
   }
   

@@ -99,7 +99,7 @@ export default function ThreeStepsSection() {
                     </motion.div>
 
                     <span className="text-xs font-black tracking-widest text-slate-300 uppercase select-none">
-                      // 0{index + 1}
+                      {`// 0${index + 1}`}
                     </span>
                   </div>
 

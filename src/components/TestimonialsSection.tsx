@@ -67,7 +67,7 @@ export default function TestimonialsSection() {
                     key={index}
                     size={20}
                     fill="currentColor"
-                    className="text-yellow-500"
+                    className="text-accent"
                   />
                 ))}
               </div>

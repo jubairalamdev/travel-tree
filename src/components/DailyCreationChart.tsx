@@ -42,14 +42,14 @@ export default function PriceChart() {
     <div className="h-64">
       <ResponsiveContainer width="100%" height="100%">
         <AreaChart data={chartData}>
-          <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" vertical={false} />
-          <XAxis dataKey="day" stroke="#9ca3af" fontSize={11} tick={{ fill: '#9ca3af' }} />
-          <YAxis stroke="#9ca3af" fontSize={11} allowDecimals={false} tick={{ fill: '#9ca3af' }} />
+          <CartesianGrid strokeDasharray="3 3" stroke="currentColor" className="text-gray-200" vertical={false} />
+          <XAxis dataKey="day" stroke="currentColor" className="text-gray-400" fontSize={11} tick={{ fill: 'currentColor' }} />
+          <YAxis stroke="currentColor" className="text-gray-400" fontSize={11} allowDecimals={false} tick={{ fill: 'currentColor' }} />
           <Tooltip
             contentStyle={{ backgroundColor: '#1a1a1a', borderColor: '#333', color: '#fff' }}
             labelStyle={{ color: '#9ca3af' }}
           />
-          <Area type="monotone" dataKey="Tours" stroke="#fc4c5a" fill="#fc4c5a" fillOpacity={0.12} />
+          <Area type="monotone" dataKey="Tours" stroke="var(--primary)" fill="var(--primary)" fillOpacity={0.12} />
         </AreaChart>
       </ResponsiveContainer>
     </div>
