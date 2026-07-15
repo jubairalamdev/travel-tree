@@ -5,7 +5,7 @@
 **Project Name:** Travel Tree Frontend  
 **Type:** Production-ready travel agency web application  
 **Framework:** Next.js (App Router) + TypeScript + Tailwind CSS  
-**Current Status:** Phases 1-14 complete. Remaining: Phase 15.
+**Current Status:** Phase 15.1 complete (build verified, env configured). Ready for Vercel deploy.
 
 ## PROJECT LOCATION
 ```
@@ -159,14 +159,27 @@
 - `TravelGuidelineSection.tsx` — 3 TS errors (framer-motion ViewportOptions `delay`), cosmetic only
 
 ## NEXT SESSION — WHERE TO START
-**Next phase:** Phase 15 — Deployment (Vercel/Netlify)
-1. Create production build
-2. Check environment variables (`BETTER_AUTH_SECRET`, `GOOGLE_CLIENT_*`, `NEXT_PUBLIC_*`, `MONGODB_URI`, `CORS_ORIGIN`)
-3. Configure build settings (Node version, build command, output dir)
-4. Deploy backend first (Render/Railway), then frontend (Vercel)
-5. Update `CORS_ORIGIN` and `NEXT_PUBLIC_API_URL` with production URLs
-6. Update Google OAuth callback URL with production domain
-7. Test deployed application
+**Next phase:** Phase 15.2 — Deploy to Vercel
+
+### Deployment Steps:
+1. **Backend** (already prepared in `travel-tree-backend`):
+   - Push `travel-tree-backend` to its Git repo
+   - Deploy on Vercel (Root: `travel-tree-backend`, Build: `npx tsc`, Output: `dist`)
+   - Set env vars: `MONGODB_URI`, `CORS_ORIGIN`, `BETTER_AUTH_SECRET`
+   - Note the production URL (e.g. `https://travel-tree-server.vercel.app`)
+
+2. **Frontend** (this project):
+   - Push to its Git repo
+   - Deploy on Vercel (auto-detects Next.js)
+   - Set env vars in Vercel dashboard:
+     - `BETTER_AUTH_SECRET` — same as backend
+     - `BETTER_AUTH_URL` — frontend production URL
+     - `NEXT_PUBLIC_API_URL` — `https://your-backend.vercel.app/api`
+     - `NEXT_PUBLIC_DEMO_EMAIL` / `NEXT_PUBLIC_DEMO_PASSWORD`
+     - `MONGO_DB_URI` — MongoDB Atlas URI (for Better Auth sessions)
+     - `GOOGLE_CLIENT_ID` / `GOOGLE_CLIENT_SECRET`
+   - Update Google OAuth callback to include production domain
+   - Test all routes, auth flow, and CRUD operations
 
 ## HOW TO START DEV SERVER
 ```bash
