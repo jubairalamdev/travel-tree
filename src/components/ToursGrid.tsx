@@ -69,7 +69,7 @@ export default function ToursGrid({ tours, loading }: ToursGridProps) {
               <p className="text-sm text-gray-500 line-clamp-2 mb-4 flex-1">
                 {tour.shortDescription}
               </p>
-              <div className="flex items-center justify-between pt-3 border-t">
+              <div className="flex items-center justify-between pt-3 border-t border-slate-200">
                 <div className="flex items-center gap-1">
                   <Star size={15} className="text-accent fill-current" />
                   <span className="text-sm font-semibold text-gray-700">{tour.rating}</span>

@@ -1,5 +1,5 @@
 export default function Card({ children, className = '', hover = false, ...props }: any) {
-  const baseClasses = 'bg-white rounded-lg shadow-md overflow-hidden'
+  const baseClasses = 'bg-white rounded-lg shadow-md overflow-hidden border border-slate-200'
   const hoverClasses = hover ? 'card-hover' : ''
   
   return (
