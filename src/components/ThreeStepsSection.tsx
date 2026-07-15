@@ -10,22 +10,22 @@ export default function ThreeStepsSection() {
       icon: Suitcase,
       title: 'Choose Your Trip',
       description: 'Explore our carefully curated tours and select the perfect adventure that matches your interests and schedule.',
-      badgeColor: 'text-blue-600 bg-blue-50 border-blue-100',
-      accentGlow: 'group-hover:ring-blue-500/10'
+      badgeColor: 'text-blue-600 bg-blue-50 border-slate-200',
+      accentGlow: 'group-hover:blue-500'
     },
     {
       icon: Car,
       title: 'Book Your Experience',
       description: 'Secure your spot with our easy booking process. Fill out a simple form and get instant confirmation.',
-      badgeColor: 'text-emerald-600 bg-emerald-50 border-emerald-100',
-      accentGlow: 'group-hover:ring-emerald-500/10'
+      badgeColor: 'text-emerald-600 bg-emerald-50 border-slate-200',
+      accentGlow: 'group-hover:emerald-500'
     },
     {
       icon: Star,
       title: 'Enjoy Your Journey',
       description: 'Sit back and relax while we take care of everything. We ensure you have an unforgettable experience.',
-      badgeColor: 'text-amber-600 bg-amber-50 border-amber-100',
-      accentGlow: 'group-hover:ring-amber-500/10'
+      badgeColor: 'text-amber-600 bg-amber-50 border-slate-200',
+      accentGlow: 'group-hover:amber-500'
     }
   ];
 
@@ -42,7 +42,7 @@ export default function ThreeStepsSection() {
     show: { 
       opacity: 1, 
       y: 0, 
-      transition: { type: 'spring', stiffness: 90, damping: 14 } 
+      transition: { type: 'spring' as const, stiffness: 90, damping: 14 } 
     }
   };
 
@@ -57,7 +57,7 @@ export default function ThreeStepsSection() {
       >
         {/* Modernized Section Header */}
         <div className="flex flex-col items-center text-center mb-16 lg:mb-24">
-          <span className="text-xs font-bold uppercase tracking-widest text-slate-400 bg-slate-200/50 px-3 py-1 rounded-full border border-slate-200/60">
+          <span className="text-xs font-bold uppercase tracking-widest text-slate-400 bg-slate-100 px-3 py-1 rounded-full border border-slate-200">
             Workflow
           </span>
           <h2 className="text-4xl sm:text-5xl font-black text-primary tracking-tight mt-4 mb-4">
@@ -85,7 +85,7 @@ export default function ThreeStepsSection() {
               )}
 
               {/* Dynamic Interactive Card Base */}
-              <div className="relative z-10 bg-white border border-slate-100 rounded-3xl p-8 xl:p-10 shadow-[0_12px_40px_-20px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_50px_-20px_rgba(0,0,0,0.08)] group-hover:ring-4 group-hover:border-slate-200/50 transition-all duration-300 flex flex-col justify-between flex-1">
+              <div className="relative z-10 bg-white border border-slate-200 rounded-3xl p-8 xl:p-10 shadow-[0_12px_40px_-20px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_50px_-20px_rgba(0,0,0,0.08)] group-hover:ring-4 group-hover:ring-slate-200/60 group-hover:border-gray-400 transition-all duration-300 flex flex-col justify-between flex-1">
                 
                 <div>
                   {/* Top Header Section inside card */}
@@ -115,13 +115,13 @@ export default function ThreeStepsSection() {
 
                 {/* Conditional Dynamic Link Footers */}
                 {index < 2 ? (
-                  <div className="mt-8 pt-6 border-t border-slate-50 flex items-center justify-between text-xs font-bold uppercase tracking-wider text-slate-400 group-hover:text-slate-900 transition-colors">
+                  <div className="mt-8 pt-6 border-t border-slate-200 flex items-center justify-between text-xs font-bold uppercase tracking-wider text-slate-400 group-hover:text-slate-900 transition-colors">
                     <span>Next: Step 0{index + 2}</span>
                     <ArrowRight size={16} className="transform group-hover:translate-x-1.5 transition-transform duration-300" />
                   </div>
                 ) : (
-                  <div className="mt-8 pt-6 border-t border-slate-50 flex items-center justify-between text-xs font-bold uppercase tracking-wider text-slate-400">
-                    <span className="inline-flex items-center gap-1.5 text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-md border border-emerald-100"> Ready to Roll</span>
+                  <div className="mt-8 pt-6 border-t border-slate-200 flex items-center justify-between text-xs font-bold uppercase tracking-wider text-slate-400">
+                    <span className="inline-flex items-center gap-1.5 text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-md border border-slate-200"> Ready to Roll</span>
                   </div>
                 )}
 

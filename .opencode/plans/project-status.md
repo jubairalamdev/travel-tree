@@ -119,10 +119,29 @@
 - POST /api/tours — now stores `createdBy` from request body
 - Dates stored as ISO strings
 
+### JWT Auth (Pre-Deployment)
+- **Backend:** `verifyToken` middleware (HMAC signature verification), applied to POST/PATCH/DELETE
+- **Frontend:** `getAuthToken()` reads signed cookie, `serverFetch`/`serverMutation` send `Authorization: Bearer` header
+- **Stats chart:** Uses direct `fetch` with `userId` query param (no auth token) — kept public
+- **AddItemForm:** Removed `createdBy` from payload (backend extracts from token)
+- `BETTER_AUTH_SECRET` synced to backend `.env`
+- Google OAuth wired on login/register pages via `authClient.signIn.social()`
+
 ### Other Changes
 - "Book Now" button on tour details redirects unauthenticated users to `/login`
 - DiscoverWeeklySection fetches from API instead of mock data
 - middleware.ts updated with `/items/add` and `/items/manage` matchers
+
+### Post-Build Package Update Fixes
+- Updated all packages to latest compatible versions (next 16.2.10, react 19.2.7, tailwindcss 4.3.2, etc.)
+- TypeScript pinned to ^6.0.3 (TS 7 broke eslint-config-next peer deps)
+- Added `as const` to `type: 'spring'` in 3 files for stricter framer-motion v12 types
+- Removed `* { margin: 0; padding: 0; }` from globals.css (unlayered CSS was overriding Tailwind v4 `@layer utilities` due to Cascade Layer priority)
+- Fixed body CSS variables (`--foreground-rgb` etc. were undefined after Next.js upgrade)
+- Made borders consistent & lighter across ThreeStepsSection, Navbar dropdown, and TravelGuidelineSection (all use `border-slate-200`)
+- Removed infinite floating animation from TravelGuidelineSection shapes (kept entrance only)
+- Added "Manage Tours" nav link visible when signed in (desktop + mobile)
+- Fixed group-hover ring color on ThreeStepsSection cards (added `ring-slate-200/60` to prevent dark outline)
 
 ## KEY DECISIONS
 1. No Hero UI components — custom Button/Card/Input/Modal/Skeleton
@@ -140,13 +159,14 @@
 - `TravelGuidelineSection.tsx` — 3 TS errors (framer-motion ViewportOptions `delay`), cosmetic only
 
 ## NEXT SESSION — WHERE TO START
-**Next phase:** Phase 15 — Deployment
+**Next phase:** Phase 15 — Deployment (Vercel/Netlify)
 1. Create production build
-2. Check environment variables
-3. Configure build settings
-4. Deploy to Vercel/Netlify
-5. Verify deployment
-6. Test deployed application
+2. Check environment variables (`BETTER_AUTH_SECRET`, `GOOGLE_CLIENT_*`, `NEXT_PUBLIC_*`, `MONGODB_URI`, `CORS_ORIGIN`)
+3. Configure build settings (Node version, build command, output dir)
+4. Deploy backend first (Render/Railway), then frontend (Vercel)
+5. Update `CORS_ORIGIN` and `NEXT_PUBLIC_API_URL` with production URLs
+6. Update Google OAuth callback URL with production domain
+7. Test deployed application
 
 ## HOW TO START DEV SERVER
 ```bash

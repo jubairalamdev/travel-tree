@@ -42,7 +42,7 @@ export default function TravelGuidelineSection() {
 
   const itemVariants = {
     hidden: { opacity: 0, x: -20 },
-    show: { opacity: 1, x: 0, transition: { type: 'spring', stiffness: 100, damping: 15 } }
+    show: { opacity: 1, x: 0, transition: { type: 'spring' as const, stiffness: 100, damping: 15 } }
   };
 
   return (
@@ -74,7 +74,7 @@ export default function TravelGuidelineSection() {
                   key={index}
                   variants={itemVariants}
                   whileHover={{ x: 6 }}
-                  className="flex items-start gap-4 p-5 bg-white rounded-2xl border border-slate-100 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.02)] hover:shadow-md transition-shadow duration-300 group cursor-pointer"
+                  className="flex items-start gap-4 p-5 bg-white rounded-2xl border border-slate-200 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.02)] hover:shadow-md transition-shadow duration-300 group cursor-pointer"
                 >
                   <div className="flex-shrink-0">
                     <div className="w-11 h-11 bg-primary/30 text-primary rounded-xl flex items-center justify-center transition-colors">
@@ -109,8 +109,7 @@ export default function TravelGuidelineSection() {
                 initial={{ opacity: 0, scale: 0.8, y: 20 }}
                 whileInView={{ opacity: 1, scale: 1, y: 0 }}
                 viewport={{ once: true }}
-                animate={{ y: [0, -10, 0] }}
-                transition={{ animate: { repeat: Infinity, duration: 4, ease: "easeInOut" }, type: 'spring' }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
                 className="absolute top-0 left-4 w-52 h-52 bg-gradient-to-br from-purple-400 to-purple-600 rounded-full flex items-center justify-center shadow-2xl shadow-purple-500/20 z-20 p-6 text-center text-white"
               >
                 <div>
@@ -125,8 +124,7 @@ export default function TravelGuidelineSection() {
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                animate={{ y: [0, 8, 0] }}
-                transition={{ delay: 0.15, animate: { repeat: Infinity, duration: 3.5, ease: "easeInOut" } }}
+                transition={{ delay: 0.15, duration: 0.6, ease: "easeOut" }}
                 className="absolute top-60 -left-4 w-36 h-36 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center shadow-xl shadow-blue-500/10 z-30 p-4 text-center text-white"
               >
                 <div>
@@ -140,8 +138,7 @@ export default function TravelGuidelineSection() {
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                animate={{ y: [0, -8, 0] }}
-                transition={{ delay: 0.2, animate: { repeat: Infinity, duration: 5, ease: "easeInOut" } }}
+                transition={{ delay: 0.2, duration: 0.6, ease: "easeOut" }}
                 className="absolute top-16 right-0 w-36 h-36 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center shadow-xl shadow-green-500/10 z-10 p-4 text-center text-white"
               >
                 <div>
@@ -155,8 +152,7 @@ export default function TravelGuidelineSection() {
                 initial={{ opacity: 0, scale: 0.8, y: -20 }}
                 whileInView={{ opacity: 1, scale: 1, y: 0 }}
                 viewport={{ once: true }}
-                animate={{ y: [0, 12, 0] }}
-                transition={{ delay: 0.25, animate: { repeat: Infinity, duration: 4.5, ease: "easeInOut" }, type: 'spring' }}
+                transition={{ delay: 0.25, duration: 0.6, ease: "easeOut" }}
                 className="absolute bottom-0 right-4 w-56 h-56 bg-gradient-to-br from-orange-400 to-orange-600 rounded-full flex items-center justify-center shadow-2xl shadow-orange-500/20 z-20 p-6 text-center text-white"
               >
                 <div>

@@ -67,6 +67,14 @@ export default function Navbar() {
                   {link.name}
                 </Link>
               ))}
+              {session && (
+                <Link
+                  href="/items/manage"
+                  className="text-gray-700 hover:text-primary font-medium transition-colors"
+                >
+                  Manage Tours
+                </Link>
+              )}
             </div>
 
             <div className="hidden md:flex items-center space-x-4">
@@ -77,7 +85,7 @@ export default function Navbar() {
                   <div className="relative" ref={dropdownRef}>
                     <button
                       onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                      className="flex items-center gap-2 px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-all"
+                      className="flex items-center gap-2 px-4 py-2 border border-slate-200 rounded-lg hover:bg-gray-50 transition-all"
                     >
                       <div className="w-7 h-7 bg-primary rounded-full flex items-center justify-center text-white text-xs font-bold">
                         {session.user?.name?.charAt(0)?.toUpperCase() || 'U'}
@@ -88,8 +96,8 @@ export default function Navbar() {
                       <ChevronDown size={16} className={`text-gray-500 transition-transform ${isDropdownOpen ? 'rotate-180' : ''}`} />
                     </button>
                     {isDropdownOpen && (
-                      <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg border py-2 z-50">
-                        <div className="px-4 py-2 border-b">
+                      <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-slate-200 py-2 z-50">
+                        <div className="px-4 py-2 border-b border-slate-200">
                           <p className="text-sm font-medium text-gray-900 truncate">{session.user?.name}</p>
                           <p className="text-xs text-gray-500 truncate">{session.user?.email}</p>
                         </div>
@@ -109,7 +117,7 @@ export default function Navbar() {
                           <PlusCircle size={16} className="text-gray-400" />
                           Add Item
                         </Link>
-                        <div className="border-t my-1" />
+                        <div className="border-t border-slate-200 my-1" />
                         <button
                           onClick={handleSignOut}
                           className="flex items-center gap-3 px-4 py-2.5 text-sm text-red-600 hover:bg-red-50 transition-colors w-full text-left"

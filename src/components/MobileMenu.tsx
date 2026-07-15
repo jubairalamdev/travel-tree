@@ -55,6 +55,15 @@ export default function MobileMenu({ isOpen, onClose, navLinks, session, isPendi
                   {link.name}
                 </Link>
               ))}
+              {session && (
+                <Link
+                  href="/items/manage"
+                  onClick={onClose}
+                  className="text-lg font-medium text-gray-700 hover:text-primary transition-colors"
+                >
+                  Manage Tours
+                </Link>
+              )}
 
               <div className="pt-6 border-t space-y-4">
                 {isPending ? (
