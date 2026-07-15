@@ -1,13 +1,10 @@
 import { NextResponse } from "next/server";
-import { auth } from "@/lib/auth";
-import { headers } from "next/headers";
+import type { NextRequest } from "next/server";
 
-export async function proxy(request: any) {
-  const session = await auth.api.getSession({
-    headers: await headers(),
-  });
+export function middleware(request: NextRequest) {
+  const sessionCookie = request.cookies.get("better-auth.session_token");
 
-  if (session) {
+  if (sessionCookie) {
     return NextResponse.next();
   }
 
@@ -16,8 +13,6 @@ export async function proxy(request: any) {
 
 export const config = {
   matcher: [
-    "/tours",
-    "/tours/:path*",
     "/items/add",
     "/items/add/:path*",
     "/items/manage",
