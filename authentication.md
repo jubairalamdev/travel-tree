@@ -61,7 +61,7 @@ proxy.ts                 # Next.js Proxy for safe redirects
 
 ---
 
-## Implementation Steps
+## Implementation Plans
 
 ### 1. MongoDB Connection (lib/mongodb.ts)
 
